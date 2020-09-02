@@ -4,8 +4,8 @@ import { FormContext } from "../context/FormContext";
 
 import PlanPromo50Dcto from "../images/planes/plan-promo-50dcto.svg";
 import PlanPromo30Gb50Dcto from "../images/planes/plan-promo-30-gigas.svg";
-import PlanPromo15GbLineaAdicional from "../images/planes/plan-15gb-lineaadicional.min.svg";
-import PlanPromo15Gb50Dcto from "../images/planes/plan-15gb-50dcto.min.svg";
+import PlanPromo15GbLineaAdicional from "../images/planes/plan-15gb-lineaadicional.svg";
+import PlanPromo15Gb50Dcto from "../images/planes/plan-15gb-50dcto.svg";
 
 const PlanRequested = styled.div`
   margin-right: 60px;
