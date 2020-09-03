@@ -6,7 +6,7 @@ import PlanArrow from "../images/arrow_2.svg";
 import { FormContext } from "../context/FormContext";
 import PlanPromo50Dcto from "../images/planes/plan-promo-50dcto.svg";
 import PlanPromo30Gb50Dcto from "../images/planes/plan-promo-30-gigas.svg";
-import PlanPromo15GbLineaAdicional from "../images/planes/plan-15gb-lineaadicional.svg";
+import PlanPromo15GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
 import PlanPromo15Gb50Dcto from "../images/planes/plan-15gb-50dcto.svg";
 
 const RequestContainer = styled(motion.div)`
