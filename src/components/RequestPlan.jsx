@@ -5,9 +5,15 @@ import { motion } from "framer-motion";
 import PlanArrow from "../images/arrow_2.svg";
 import { FormContext } from "../context/FormContext";
 import PlanPromo50Dcto from "../images/planes/plan-promo-50dcto.svg";
+import PlanPromo15Gb50Dcto from "../images/planes/plan-15gb-50dcto.svg";
 import PlanPromo30Gb50Dcto from "../images/planes/plan-promo-30-gigas.svg";
 import PlanPromo15GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
-import PlanPromo15Gb50Dcto from "../images/planes/plan-15gb-50dcto.svg";
+import PlanPromo20GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
+import PlanPromo40GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
+import PlanPromo60GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
+import PlanPromo80GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
+import PlanPromo100GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
+import PlanPromoLibreLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
 
 const RequestContainer = styled(motion.div)`
   position: absolute;
@@ -91,14 +97,32 @@ const RequestPlan = () => {
           {formData.selectedPlan === "promo-50dcto" && (
             <img src={PlanPromo50Dcto} alt="plan promo 50% dcto" />
           )}
+          {formData.selectedPlan === "15gb-50dcto" && (
+            <img src={PlanPromo15Gb50Dcto} alt="plan promo 15gb 50dcto" />
+          )}
           {formData.selectedPlan === "30gb-50dcto" && (
             <img src={PlanPromo30Gb50Dcto} alt="plan promo 30gb 50dcto" />
           )}
           {formData.selectedPlan === "15gb-linea-adicional" && (
             <img src={PlanPromo15GbLineaAdicional} alt="plan promo 15gb línea adicional" />
           )}
-          {formData.selectedPlan === "15gb-50dcto" && (
-            <img src={PlanPromo15Gb50Dcto} alt="plan promo 15gb 50dcto" />
+          {formData.selectedPlan === "linea-adicional-20gb" && (
+            <img src={PlanPromo20GbLineaAdicional} alt="plan promo 20gb línea adicional" />
+          )}
+          {formData.selectedPlan === "linea-adicional-40gb" && (
+            <img src={PlanPromo40GbLineaAdicional} alt="plan promo 40gb línea adicional" />
+          )}
+          {formData.selectedPlan === "linea-adicional-60gb" && (
+            <img src={PlanPromo60GbLineaAdicional} alt="plan promo 60gb línea adicional" />
+          )}
+          {formData.selectedPlan === "linea-adicional-80gb" && (
+            <img src={PlanPromo80GbLineaAdicional} alt="plan promo 80gb línea adicional" />
+          )}
+          {formData.selectedPlan === "linea-adicional-100gb" && (
+            <img src={PlanPromo100GbLineaAdicional} alt="plan promo 100gb línea adicional" />
+          )}
+          {formData.selectedPlan === "linea-adicional-libre" && (
+            <img src={PlanPromoLibreLineaAdicional} alt="plan promo Libre línea adicional" />
           )}
         </div>
       </RequestContainer>

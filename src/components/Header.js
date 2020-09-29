@@ -127,14 +127,14 @@ const Header = () => {
           <>
             {formData.selectedPlan === undefined && <TitleSection>Proceso de portabilidad</TitleSection>}
             {formData.selectedPlan === 'promo-50dcto' && <TitleSection>Proceso de portabilidad</TitleSection>}
+            {formData.selectedPlan === '15gb-50dcto' && <TitleSection>¡Siempre queremos darte más!</TitleSection>}
             {formData.selectedPlan === '30gb-50dcto' && <TitleSection>Proceso de portabilidad</TitleSection>}
-            {formData.selectedPlan === '15gb-linea-adicional' && <TitleSection>Siempre queremos darte más</TitleSection>}
-            {formData.selectedPlan === '15gb-50dcto' && <TitleSection>Siempre queremos darte más</TitleSection>}
+            {formData.selectedPlan === '15gb-linea-adicional' && <TitleSection>¡Siempre queremos darte más!</TitleSection>}
             {formData.selectedPlan === undefined && <SubTitleSection>Portándote al nuevo plan de 40 gigas obtendrás un 50% de descuento en cargo fijo mensual</SubTitleSection>}
             {formData.selectedPlan === 'promo-50dcto' && <SubTitleSection>Portándote al nuevo plan de 40 gigas obtendrás un 50% de descuento en cargo fijo mensual</SubTitleSection>}
+            {formData.selectedPlan === '15gb-50dcto' && <SubTitleSection>Aprovecha esta oferta con un 50% de descuento por 1 año</SubTitleSection>}
             {formData.selectedPlan === '30gb-50dcto' && <SubTitleSection>Portándote al plan de 30 gigas obtendrás un 50% de descuento en cargo fijo mensual</SubTitleSection>}
-            {formData.selectedPlan === '15gb-linea-adicional' && <SubTitleSection>Por ser cliente WOM, te queremos REGALAR una línea adicional</SubTitleSection>}
-            {formData.selectedPlan === '15gb-50dcto' && <SubTitleSection>Por ser cliente WOM, te queremos ofrecer una segunda línea con 50% DCTO.</SubTitleSection>}
+            {formData.selectedPlan === '15gb-linea-adicional' && <SubTitleSection>¡Exclusivo para ti! Te REGALAMOS un plan adicional por 1 año</SubTitleSection>}
           </>
         )}
         {formData.successFlow === false ? (

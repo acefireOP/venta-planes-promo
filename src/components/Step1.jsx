@@ -120,14 +120,14 @@ const Step1 = ({ location }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const redirectUrl = () => {
+  /*const redirectUrl = () => {
     if(formData.selectedPlan === "promo-50dcto"){
       window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=promo-50dcto"
     } else if(formData.selectedPlan === "30gb-50dcto"){
-      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=30gb-50dcto"
+     window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=30gb-50dcto"
     }
   } 
-  redirectUrl()
+  redirectUrl()*/
 
   const notPlanType = () => {
     formData.planType = "portabilidad"
@@ -136,9 +136,15 @@ const Step1 = ({ location }) => {
 
   if (
     (formData.selectedPlan !== undefined && formData.selectedPlan === "promo-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "30gb-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-linea-adicional") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-50dcto")
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-20gb") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-40gb") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-60gb") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-80gb") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-100gb") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-libre")
   ) {
     return (
       <>
@@ -151,7 +157,7 @@ const Step1 = ({ location }) => {
                 {formData.selectedPlan === '30gb-50dcto' && <h1>Solicita tu plan WOM en línea</h1>}
                 {formData.selectedPlan === 'promo-50dcto' && <h1>Solicita tu plan WOM en línea</h1>}
                 {formData.selectedPlan === '15gb-50dcto' && <h1>Solicita tu segunda línea WOM</h1>}
-                {formData.selectedPlan === '15gb-linea-adicional' && <h1>Solicita tu línea adicional GRATIS</h1>}
+                {formData.selectedPlan === '15gb-linea-adicional' && <h1>Solicita tu línea GRATIS</h1>}
                 <div className="plan-types-container">
                   <div className="planTypeWrapper">
                     <PlanType
