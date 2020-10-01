@@ -5,7 +5,7 @@ import firebase from "firebase";
 import "firebase/firestore";
 import { FormContext } from "../context/FormContext";
 import CheckboxOn from "../images/checkbox-on.svg";
-import document from "../assets/terminos-y-condiciones-WOM-junio-2020.pdf";
+import document from "../assets/terminos-y-condiciones-wom-octubre2020.pdf";
 import ReactGA from "react-ga";
 import axios from "axios";
 const Conditions = styled.div`
