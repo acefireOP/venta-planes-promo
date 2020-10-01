@@ -8,12 +8,12 @@ import PlanPromo50Dcto from "../images/planes/plan-promo-50dcto.svg";
 import PlanPromo15Gb50Dcto from "../images/planes/plan-15gb-50dcto.svg";
 import PlanPromo30Gb50Dcto from "../images/planes/plan-promo-30-gigas.svg";
 import PlanPromo15GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
-import PlanPromo20GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
-import PlanPromo40GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
-import PlanPromo60GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
-import PlanPromo80GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
-import PlanPromo100GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
-import PlanPromoLibreLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
+import PlanPromo20GbLineaAdicional from "../images/planes/plan-20gigas.svg";
+import PlanPromo40GbLineaAdicional from "../images/planes/plan-40gigas.svg";
+import PlanPromo60GbLineaAdicional from "../images/planes/plan-60gigas.svg";
+import PlanPromo80GbLineaAdicional from "../images/planes/plan-80gigas.svg";
+import PlanPromo100GbLineaAdicional from "../images/planes/plan-100gigas.svg";
+import PlanPromoLibreLineaAdicional from "../images/planes/plan-libre.svg";
 
 const RequestContainerMob = styled(motion.div)`
   width: 96%;
