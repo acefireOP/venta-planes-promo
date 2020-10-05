@@ -152,11 +152,9 @@ const Header = () => {
               (formData.selectedPlan === 'linea-adicional-libre' && <TitleSection>¡Aprovecha esta oferta exclusiva para ti!</TitleSection>)
             }
             
-            {formData.selectedPlan === undefined && <SubTitleSection>Portándote al nuevo plan de 40 gigas obtendrás un 50% de descuento en cargo fijo mensual</SubTitleSection>}
+            {formData.selectedPlan === undefined && <SubTitleSection></SubTitleSection>}
             {formData.selectedPlan === 'promo-50dcto' && <SubTitleSection>Portándote al nuevo plan de 40 gigas obtendrás un 50% de descuento en cargo fijo mensual</SubTitleSection>}
-            {formData.selectedPlan === '15gb-50dcto' && <SubTitleSection>Aprovecha esta oferta con un 50% de descuento por 1 año</SubTitleSection>}
             {formData.selectedPlan === '30gb-50dcto' && <SubTitleSection>Portándote al plan de 30 gigas obtendrás un 50% de descuento en cargo fijo mensual</SubTitleSection>}
-            {formData.selectedPlan === '15gb-linea-adicional' && <SubTitleSection>¡Exclusivo para ti! Te REGALAMOS un plan adicional por 1 año</SubTitleSection>}
             {formData.selectedPlan === 'linea-adicional-20gb' && <SubTitleSection>50% de dcto. x 1 año portando una linea adicional</SubTitleSection>}
             {formData.selectedPlan === 'linea-adicional-40gb' && <SubTitleSection>50% de dcto. x 1 año portando una linea adicional</SubTitleSection>}
             {formData.selectedPlan === 'linea-adicional-60gb' && <SubTitleSection>50% de dcto. x 1 año portando una linea adicional</SubTitleSection>}

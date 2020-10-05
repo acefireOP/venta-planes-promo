@@ -83,9 +83,34 @@ const VoidContainer = styled.div`
   background-color: #ffffff;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.45);
   border-radius: 8px;
+  text-align: center;
+  padding: 15px;
   h1{
     color: rgb(45, 20, 65);
+    font-weight: 600;
+    &.font-20-px{
+      font-size: 20px;
+    }
+  }
+  h2{
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .link-a{
+    text-decoration: none;
+    color: #551261;
     font-weight: 500;
+    margin-top: 20px;
+    border: 1px solid #551261;
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color .3s, color .3s, border .3s;
+    &:hover{
+      background-color: #551261;
+      color: #ffffff;
+      border: 1px solid #ffffff;
+    }
   }
 `;
 
@@ -129,14 +154,14 @@ const Step1 = ({ location }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  /*const redirectUrl = () => {
+  const redirectUrl = () => {
     if(formData.selectedPlan === "promo-50dcto"){
       window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=promo-50dcto"
     } else if(formData.selectedPlan === "30gb-50dcto"){
-     window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=30gb-50dcto"
-    }
+      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=30gb-50dcto"
+    } 
   } 
-  redirectUrl()*/
+  redirectUrl()
 
   const notPlanType = () => {
     formData.planType = "portabilidad"
@@ -145,9 +170,7 @@ const Step1 = ({ location }) => {
 
   if (
     (formData.selectedPlan !== undefined && formData.selectedPlan === "promo-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "30gb-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-linea-adicional") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-20gb") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-40gb") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-60gb") ||
@@ -280,25 +303,19 @@ const Step1 = ({ location }) => {
     return (
       <>
         {
-          (
-            formData.selectedPlan === "promo-50dcto" ||
-            formData.selectedPlan === "15gb-50dcto" ||
-            formData.selectedPlan === "30gb-50dcto" ||
-            formData.selectedPlan === "15gb-linea-adicional" ||
-            formData.selectedPlan === "linea-adicional-20gb" ||
-            formData.selectedPlan === "linea-adicional-40gb" ||
-            formData.selectedPlan === "linea-adicional-60gb" ||
-            formData.selectedPlan === "linea-adicional-80gb" ||
-            formData.selectedPlan === "linea-adicional-100gb" ||
-            formData.selectedPlan === "linea-adicional-libre"
-          )
+          formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-linea-adicional" ||
+          formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-50dcto"
           ?
-            (window.innerWidth >= 768 ? <RequestPlan /> : <RequestPlanMob />) 
-          : undefined
+          <VoidContainer>
+            <h1 className="font-20-px">Esta promoción ya no está disponible</h1>
+            <h2>Atento, pronto te contaremos de nuevas promos!</h2>
+            <a className="link-a" href="https://www.wom.cl/" title="">ir a wom</a>
+          </VoidContainer>
+          :
+          <VoidContainer>
+            <h1>No hay plan seleccionado</h1>
+          </VoidContainer>
         }
-        <VoidContainer>
-          <h1>No hay plan seleccionado</h1>
-        </VoidContainer>
       </>
     );
   }
