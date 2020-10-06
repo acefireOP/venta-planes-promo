@@ -75,7 +75,7 @@ const MotionDiv = styled(motion.div)`
 const VoidContainer = styled.div`
   width: 90%;
   max-width: 600px;
-  height: 200px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -154,14 +154,14 @@ const Step1 = ({ location }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const redirectUrl = () => {
+ /* const redirectUrl = () => {
     if(formData.selectedPlan === "promo-50dcto"){
       window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=promo-50dcto"
     } else if(formData.selectedPlan === "30gb-50dcto"){
       window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=30gb-50dcto"
     } 
   } 
-  redirectUrl()
+  redirectUrl()*/
 
   const notPlanType = () => {
     formData.planType = "portabilidad"
@@ -309,11 +309,12 @@ const Step1 = ({ location }) => {
           <VoidContainer>
             <h1 className="font-20-px">Esta promoción ya no está disponible</h1>
             <h2>Atento, pronto te contaremos de nuevas promos!</h2>
-            <a className="link-a" href="https://www.wom.cl/" title="">ir a wom</a>
+            <a className="link-a" href="https://www.wom.cl/" title="ir a wom">Ir a WOM.CL</a>
           </VoidContainer>
           :
           <VoidContainer>
             <h1>No hay plan seleccionado</h1>
+            <a className="link-a" href="https://www.wom.cl/" title="ir a wom">Ir a WOM.CL</a>
           </VoidContainer>
         }
       </>

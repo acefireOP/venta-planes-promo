@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-
+import { FormContext } from "../context/FormContext";
 import LogoWom from "../images/logowom.svg";
 import Transbank from "../images/transbank.svg";
 import IconFacebook from "../images/icon_facebook.svg";
@@ -20,6 +20,9 @@ const FooterWom = styled.div`
   background-color: #2d1441;
   padding: 28px 15px 50px;
   ul {
+    &.w-190{
+      width: 190px;
+    }
     li {
       font-size: 13px;
       line-height: 16px;
@@ -38,6 +41,7 @@ const FooterWom = styled.div`
         display: block;
       }
       &.social-links {
+        width: 100%;
         max-width: 190px;
         display: flex;
         flex-direction: row;
@@ -67,6 +71,17 @@ const FooterWom = styled.div`
         }
       }
     }
+  }
+  .d-center{
+    display: block;
+    margin: 0 auto;
+    img{
+      margin: 0 auto 40px;
+      display: block;
+    }
+  }
+  .text-center{
+    text-align: center;
   }
 `;
 
@@ -148,84 +163,141 @@ const WrapperFooter = styled.div`
 `;
 
 const Footer = () => {
+  const { formData } = useContext(FormContext);
   return (
     <FooterWom>
       <WrapperFooter>
-        <div>
-          <img className="logo-footer" src={LogoWom} alt="wom footer" />
-        </div>
-        <div>
-          <ul className="contract">
-            <li className="one">A nuestro WhatsApp:</li>
-            <li className="li-inline two">
-              <picture>
-                <img src={IconWhatsapp} alt="whatsapp" />
-              </picture>
-              <span>+ 56 9 3522 3070</span>
-            </li>
-            <li className="three">
-              {window.innerWidth >= 768
-                ? "Desde tu celular WOM marca:"
-                : "Marca desde tu celular"}
-            </li>
-            <li className="li-inline four">
-              <picture>
-                <img src={IconPhoneOne} alt="desde celular" />
-              </picture>
-              <span>103</span>
-            </li>
-            <li className="five">
-              {window.innerWidth >= 768
-                ? "Fono clientes:"
-                : "Pórtate llamando al"}
-            </li>
-            <li className="li-inline six">
-              <picture>
-                <img src={IconPhoneTwo} alt="fono clientes" />
-              </picture>
-              <span>22 3377 600</span>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <ul>
-            <li className="bolder">Paga con:</li>
-            <li>
-              <img src={Transbank} alt="tarjetas transbank" />
-            </li>
-            <li className="bolder">Síguenos en:</li>
-            <li className="social-links">
-              <a
-                href="https://facebook.com/womchile"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={IconFacebook} alt="facebook" />
-              </a>
-              <a
-                href="https://twitter.com/womchile"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={IconTwitter} alt="twitter" />
-              </a>
-              <a
-                href="https://www.youtube.com/channel/UCPM0XXrP4i724aYt27QLBxA"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={IconYoutube} alt="youtube" />
-              </a>
-              <a
-                href="https://instagram.com/womchile"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={IconInstagram} alt="instagram" />
-              </a>
-            </li>
-          </ul>
-        </div>
+        {
+          (
+            formData.selectedPlan === 'promo-50dcto' ||
+            formData.selectedPlan === '30gb-50dcto' ||
+            formData.selectedPlan === 'linea-adicional-20gb' ||
+            formData.selectedPlan === 'linea-adicional-40gb' ||
+            formData.selectedPlan === 'linea-adicional-60gb' ||
+            formData.selectedPlan === 'linea-adicional-80gb' ||
+            formData.selectedPlan === 'linea-adicional-100gb' ||
+            formData.selectedPlan === 'linea-adicional-libre'
+          )
+          ?
+          (
+            <>
+              <div>
+                <img className="logo-footer" src={LogoWom} alt="wom footer" />
+              </div>
+              <div>
+                <ul className="contract">
+                  <li className="one">A nuestro WhatsApp:</li>
+                  <li className="li-inline two">
+                    <picture>
+                      <img src={IconWhatsapp} alt="whatsapp" />
+                    </picture>
+                    <span>+ 56 9 3522 3070</span>
+                  </li>
+                  <li className="three">
+                    {window.innerWidth >= 768
+                      ? "Desde tu celular WOM marca:"
+                      : "Marca desde tu celular"}
+                  </li>
+                  <li className="li-inline four">
+                    <picture>
+                      <img src={IconPhoneOne} alt="desde celular" />
+                    </picture>
+                    <span>103</span>
+                  </li>
+                  <li className="five">
+                    {window.innerWidth >= 768
+                      ? "Fono clientes:"
+                      : "Pórtate llamando al"}
+                  </li>
+                  <li className="li-inline six">
+                    <picture>
+                      <img src={IconPhoneTwo} alt="fono clientes" />
+                    </picture>
+                    <span>22 3377 600</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li className="bolder">Paga con:</li>
+                  <li>
+                    <img src={Transbank} alt="tarjetas transbank" />
+                  </li>
+                  <li className="bolder">Síguenos en:</li>
+                  <li className="social-links">
+                    <a
+                      href="https://facebook.com/womchile"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={IconFacebook} alt="facebook" />
+                    </a>
+                    <a
+                      href="https://twitter.com/womchile"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={IconTwitter} alt="twitter" />
+                    </a>
+                    <a
+                      href="https://www.youtube.com/channel/UCPM0XXrP4i724aYt27QLBxA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={IconYoutube} alt="youtube" />
+                    </a>
+                    <a
+                      href="https://instagram.com/womchile"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={IconInstagram} alt="instagram" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </>
+          )
+          :
+          (
+            <div className="d-center">
+              <img className="logo-footer" src={LogoWom} alt="wom footer" />
+              <ul className="w-190">
+                <li className="bolder text-center">Síguenos en:</li>
+                <li className="social-links">
+                  <a
+                    href="https://facebook.com/womchile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={IconFacebook} alt="facebook" />
+                  </a>
+                  <a
+                    href="https://twitter.com/womchile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={IconTwitter} alt="twitter" />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/channel/UCPM0XXrP4i724aYt27QLBxA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={IconYoutube} alt="youtube" />
+                  </a>
+                  <a
+                    href="https://instagram.com/womchile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={IconInstagram} alt="instagram" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )
+        }
       </WrapperFooter>
     </FooterWom>
   );
