@@ -126,53 +126,79 @@ const Header = () => {
         {formData.successFlow === false && (
           <>
             {
-              (formData.selectedPlan !== 'promo-50dcto' ||
-              formData.selectedPlan !== '15gb-50dcto' ||
-              formData.selectedPlan !== '30gb-50dcto' ||
-              formData.selectedPlan !== '15gb-linea-adicional' ||
-              formData.selectedPlan !== 'linea-adicional-20gb' ||
-              formData.selectedPlan !== 'linea-adicional-40gb' ||
-              formData.selectedPlan !== 'linea-adicional-60gb' ||
-              formData.selectedPlan !== 'linea-adicional-80gb' ||
-              formData.selectedPlan !== 'linea-adicional-100gb' ||
-              formData.selectedPlan !== 'linea-adicional-libre')
+              (
+                formData.selectedPlan === undefined ||
+                formData.selectedPlan !== 'promo-50dcto' ||
+                formData.selectedPlan !== '30gb-50dcto' ||
+                formData.selectedPlan !== 'linea-adicional-25dcto' ||
+                formData.selectedPlan !== 'linea-adicional-50dcto' ||
+                formData.selectedPlan !== 'linea-adicional-75dcto' ||
+                formData.selectedPlan !== 'linea-adicional-100dcto' ||
+                formData.selectedPlan !== 'linea-adicional-125dcto' ||
+                formData.selectedPlan !== 'linea-adicional-libredcto' ||
+                formData.selectedPlan !== 'linea-adicional-25dcto-nc' ||
+                formData.selectedPlan !== 'linea-adicional-50dcto-nc' ||
+                formData.selectedPlan !== 'linea-adicional-75dcto-nc' ||
+                formData.selectedPlan !== 'linea-adicional-100dcto-nc' ||
+                formData.selectedPlan !== 'linea-adicional-125dcto-nc' ||
+                formData.selectedPlan !== 'linea-adicional-libredcto-nc'
+              )
               && <TitleSection></TitleSection>
             }
-
-            {formData.selectedPlan === undefined && <TitleSection></TitleSection>}
-            {formData.selectedPlan === 'promo-50dcto' && <TitleSection>Proceso de portabilidad</TitleSection>}
-            {formData.selectedPlan === '15gb-50dcto' && <TitleSection></TitleSection>}
-            {formData.selectedPlan === '30gb-50dcto' && <TitleSection>Proceso de portabilidad</TitleSection>}
-            {formData.selectedPlan === '15gb-linea-adicional' && <TitleSection></TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-20gb' && <TitleSection>¡Aprovecha esta oferta exclusiva para ti!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-40gb' && <TitleSection>¡Aprovecha esta oferta exclusiva para ti!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-60gb' && <TitleSection>¡Aprovecha esta oferta exclusiva para ti!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-80gb' && <TitleSection>¡Aprovecha esta oferta exclusiva para ti!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-100gb' && <TitleSection>¡Aprovecha esta oferta exclusiva para ti!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-libre' && <TitleSection>¡Aprovecha esta oferta exclusiva para ti!</TitleSection>}
-            
+            {(formData.selectedPlan === 'promo-50dcto' || formData.selectedPlan === '30gb-50dcto') && <TitleSection>Proceso de portabilidad</TitleSection>}
+            {
+              (
+                formData.selectedPlan === 'linea-adicional-25dcto' || formData.selectedPlan === 'linea-adicional-50dcto' ||
+                formData.selectedPlan === 'linea-adicional-75dcto' || formData.selectedPlan === 'linea-adicional-100dcto' ||
+                formData.selectedPlan === 'linea-adicional-125dcto' || formData.selectedPlan === 'linea-adicional-libredcto'
+              ) && <TitleSection>Proceso de portabilidad linea adicional cliente</TitleSection>
+            }
+            {
+              (
+                formData.selectedPlan === 'linea-adicional-25dcto-nc' || formData.selectedPlan === 'linea-adicional-50dcto-nc' ||
+                formData.selectedPlan === 'linea-adicional-75dcto-nc' || formData.selectedPlan === 'linea-adicional-100dcto-nc' ||
+                formData.selectedPlan === 'linea-adicional-125dcto-nc' || formData.selectedPlan === 'linea-adicional-libredcto-nc'
+              ) && <TitleSection>Proceso de portabilidad linea adicional no cliente</TitleSection>
+            }
             
             {formData.selectedPlan === undefined && <SubTitleSection></SubTitleSection>}
             {formData.selectedPlan === 'promo-50dcto' && <SubTitleSection>Portándote al nuevo plan de 40 gigas obtendrás un 50% de descuento en cargo fijo mensual</SubTitleSection>}
             {formData.selectedPlan === '30gb-50dcto' && <SubTitleSection>Portándote al plan de 30 gigas obtendrás un 50% de descuento en cargo fijo mensual</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-20gb' && <SubTitleSection>50% de dcto. x 1 año portando una linea adicional</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-40gb' && <SubTitleSection>50% de dcto. x 1 año portando una linea adicional</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-60gb' && <SubTitleSection>50% de dcto. x 1 año portando una linea adicional</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-80gb' && <SubTitleSection>50% de dcto. x 1 año portando una linea adicional</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-100gb' && <SubTitleSection>50% de dcto. x 1 año portando una linea adicional</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-libre' && <SubTitleSection>50% de dcto. x 1 año portando una linea adicional</SubTitleSection>}
+            {
+              (
+                formData.selectedPlan === 'linea-adicional-25dcto' || formData.selectedPlan === 'linea-adicional-50dcto' ||
+                formData.selectedPlan === 'linea-adicional-75dcto' || formData.selectedPlan === 'linea-adicional-100dcto' ||
+                formData.selectedPlan === 'linea-adicional-125dcto' || formData.selectedPlan === 'linea-adicional-libredcto'
+              ) && <SubTitleSection>Portándote al nuevo plan linea adicional clientes obtendrás descuentos</SubTitleSection>
+            }
+            {
+              (
+                formData.selectedPlan === 'linea-adicional-25dcto-nc' || formData.selectedPlan === 'linea-adicional-50dcto-nc' ||
+                formData.selectedPlan === 'linea-adicional-75dcto-nc' || formData.selectedPlan === 'linea-adicional-100dcto-nc' ||
+                formData.selectedPlan === 'linea-adicional-125dcto-nc' || formData.selectedPlan === 'linea-adicional-libredcto-nc'
+              ) && <SubTitleSection>Portándote al nuevo plan linea adicional no clientes obtendrás descuentos</SubTitleSection>
+            }
+  
           </>
         )}
         {formData.successFlow === false ? (
 
-          (formData.selectedPlan === 'promo-50dcto' ||
-          formData.selectedPlan === '30gb-50dcto' ||
-          formData.selectedPlan === 'linea-adicional-20gb' ||
-          formData.selectedPlan === 'linea-adicional-40gb' ||
-          formData.selectedPlan === 'linea-adicional-60gb' ||
-          formData.selectedPlan === 'linea-adicional-80gb' ||
-          formData.selectedPlan === 'linea-adicional-100gb' ||
-          formData.selectedPlan === 'linea-adicional-libre')
+          (
+            formData.selectedPlan === 'promo-50dcto' ||
+            formData.selectedPlan === '30gb-50dcto' ||
+            formData.selectedPlan === 'linea-adicional-25dcto' ||
+            formData.selectedPlan === 'linea-adicional-50dcto' ||
+            formData.selectedPlan === 'linea-adicional-75dcto' ||
+            formData.selectedPlan === 'linea-adicional-100dcto' ||
+            formData.selectedPlan === 'linea-adicional-125dcto' ||
+            formData.selectedPlan === 'linea-adicional-libredcto' ||
+            formData.selectedPlan === 'linea-adicional-25dcto-nc' ||
+            formData.selectedPlan === 'linea-adicional-50dcto-nc' ||
+            formData.selectedPlan === 'linea-adicional-75dcto-nc' ||
+            formData.selectedPlan === 'linea-adicional-100dcto-nc' ||
+            formData.selectedPlan === 'linea-adicional-125dcto-nc' ||
+            formData.selectedPlan === 'linea-adicional-libredcto-nc'
+          )  
           ?
           <Steps>
             <picture className="tracks">

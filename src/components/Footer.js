@@ -171,12 +171,18 @@ const Footer = () => {
           (
             formData.selectedPlan === 'promo-50dcto' ||
             formData.selectedPlan === '30gb-50dcto' ||
-            formData.selectedPlan === 'linea-adicional-20gb' ||
-            formData.selectedPlan === 'linea-adicional-40gb' ||
-            formData.selectedPlan === 'linea-adicional-60gb' ||
-            formData.selectedPlan === 'linea-adicional-80gb' ||
-            formData.selectedPlan === 'linea-adicional-100gb' ||
-            formData.selectedPlan === 'linea-adicional-libre'
+            formData.selectedPlan === 'linea-adicional-25dcto' ||
+            formData.selectedPlan === 'linea-adicional-50dcto' ||
+            formData.selectedPlan === 'linea-adicional-75dcto' ||
+            formData.selectedPlan === 'linea-adicional-100dcto' ||
+            formData.selectedPlan === 'linea-adicional-125dcto' ||
+            formData.selectedPlan === 'linea-adicional-libredcto' ||
+            formData.selectedPlan === 'linea-adicional-25dcto-nc' ||
+            formData.selectedPlan === 'linea-adicional-50dcto-nc' ||
+            formData.selectedPlan === 'linea-adicional-75dcto-nc' ||
+            formData.selectedPlan === 'linea-adicional-100dcto-nc' ||
+            formData.selectedPlan === 'linea-adicional-125dcto-nc' ||
+            formData.selectedPlan === 'linea-adicional-libredcto-nc'
           )
           ?
           (
