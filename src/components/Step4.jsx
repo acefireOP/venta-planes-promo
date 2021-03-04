@@ -5,7 +5,7 @@ import FrequentQuestions from "./FrequentQuestions";
 import styled from "styled-components";
 import IconEmail from "../images/formulario/icon_email.svg";
 import IconLight from "../images/icon_light_bulb.svg";
-import ReactGA from "react-ga";
+//import ReactGA from "react-ga";
 import RadiusContentWrapper from "./RadiusContentWrapper";
 
 const FinalSummary = styled.div`
@@ -132,23 +132,47 @@ const FinalSummary = styled.div`
     }
   }
 `;
+const BajadaInfoBottom = styled.h3`
+  font-size: 16px;
+  line-height: 20px;
+  color: #7c6c8a;
+  margin: 20px 0 0;
+  text-align: center;
+  display: block;
+  .contact-tel{
+    color: #7c6c8a;
+  }
+`;
 
 const Step4 = () => {
   const { formData, setFormData } = useContext(FormContext);
   useEffect(() => {
-    switch (formData.planType) {
+    /*switch (formData.planType) {
       case "lineaNueva":
         window.fbq("track", "Portate_Lineanueva_P4CompleteRegistration");
         break;
       case "portabilidad":
         window.fbq("track", "Portate_Portate_P4CompleteRegistration");
         break;
-    }
+    }*/
     setFormData({ ...formData, successFlow: true });
     window.scrollTo(0, 0);
-    ReactGA.pageview(
+    /*ReactGA.pageview(
       window.location.pathname + `/?plan=${formData.selectedPlan}`
-    );
+    );*/
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event':'pagina-virtual', 
+      'virtualPageURL':`/checkout/linea-adicional/exito/?plan=${formData.selectedPlan}​`, 
+      'virtualPageTitle':'Checkout - Linea adicional - Exito ', 
+      'rut':`${formData.rut}`,
+      'tipoPlan':`${formData.planType}`,
+      'numeroPortar':`${formData.phoneToMigrate}`
+    });
+    /*window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'solicitud-exitosa'
+    });*/
   }, []);
   return (
     <FinalSummary>
@@ -170,7 +194,7 @@ const Step4 = () => {
               <p>
                 Revisa tu bandeja de correo en las próximas 12 horas hábiles.
               </p>
-              <a href="http://www.wom.cl">
+              <a href="https://www.wom.cl">
                 <button>volver a WOM.CL</button>
               </a>
             </div>
@@ -184,6 +208,7 @@ const Step4 = () => {
             tener a mano tu cédula de identidad.
           </p>
         </div>
+        <BajadaInfoBottom>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfoBottom>
       </RadiusContentWrapper>
 
       <FrequentQuestions />

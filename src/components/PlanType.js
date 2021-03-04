@@ -141,7 +141,7 @@ const PlanType = ({
   const { formData, setFormData } = useContext(FormContext);
 
   const clickHandler = (key, ptype) => {
-    switch (ptype) {
+    /*switch (ptype) {
       case "lineaNueva":
         window.fbq("track", "Portate_Lineanueva_P3Pasofinal");
         break;
@@ -154,7 +154,7 @@ const PlanType = ({
       case "Despacho a domicilio":
         window.fbq("track", "Portate_Despacho_P3Pasofinal");
         break;
-    }
+    }*/
     setFormData({ ...formData, [key]: ptype });
   };
 

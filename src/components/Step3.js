@@ -5,7 +5,7 @@ import Step3Info from "./Step3Info";
 import styled from "styled-components";
 import Step3Conditions from "./Step3Conditions";
 import TitleBlock from "./TitleBlock";
-import ReactGA from "react-ga";
+//import ReactGA from "react-ga";
 import RadiusContentWrapper from "./RadiusContentWrapper";
 
 const WrapperStep3 = styled.div`
@@ -27,9 +27,18 @@ const Step3 = () => {
   useEffect(() => {
     setFormData({ ...formData, successFlow: false });
     window.scrollTo(0, 0);
-    ReactGA.pageview(
+    /*ReactGA.pageview(
       window.location.pathname + `/?plan=${formData.selectedPlan}`
-    );
+    );*/
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event':'pagina-virtual', 
+      'virtualPageURL':`/checkout/linea-adicional/paso3/?plan=${formData.selectedPlan}​`, 
+      'virtualPageTitle':'Checkout - Linea adicional - Confirmación ', 
+      'rut':`${formData.rut}`,
+      'tipoPlan':`${formData.planType}`,
+      'numeroPortar':`${formData.phoneToMigrate}`
+    });
   }, []);
   return (
     <RadiusContentWrapper>

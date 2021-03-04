@@ -14,7 +14,7 @@ import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
 import Step4 from "./components/Step4";
 import * as firebase from "firebase";
-import ReactGA from "react-ga";
+//import ReactGA from "react-ga";
 
 const config = {
   apiKey: "AIzaSyBE4MvxWLMIAApKJTEqT_ZpXHRa3A1kj50",
@@ -27,7 +27,7 @@ const config = {
   measurementId: "G-C2L75XKKLB",
 };
 
-ReactGA.initialize("UA-64277072-1");
+//ReactGA.initialize("UA-64277072-1");
 
 firebase.initializeApp(config);
 

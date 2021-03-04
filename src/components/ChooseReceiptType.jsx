@@ -9,7 +9,7 @@ import StoreListItem from "./StoreListItem";
 import PrevButton from "./PrevButton";
 import NextButton from "./NextButton";
 import TitleBlock from "./TitleBlock";
-import ReactGA from "react-ga";
+//import ReactGA from "react-ga";
 import Vector from "../images/Vector.svg";
 import Alerta from "../images/icon_alerta.svg";
 import RadiusContentWrapper from "./RadiusContentWrapper";
@@ -132,6 +132,20 @@ const BajadaText = styled.p`
     text-align: left;
   }
 `;
+const BajadaInfoBottom = styled.h3`
+  font-size: 16px;
+  line-height: 20px;
+  color: #7c6c8a;
+  margin: 20px 0 0;
+  text-align: center;
+  display: none;
+  .contact-tel{
+    color: #7c6c8a;
+  }
+  @media(max-width:768px){
+    display: block;
+  }
+`;
 const ConditionCheck = styled.div`
   display: flex;
   flex-direction: row;
@@ -245,9 +259,33 @@ const Step2 = (props) => {
     }
     if (!regioneComunasList.regiones) {
       window.scrollTo(0, 0);
-      ReactGA.pageview(
+      /*ReactGA.pageview(
         window.location.pathname + `/?plan=${formData.selectedPlan}`
-      );
+      );*/
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event':'pagina-virtual', 
+        'virtualPageURL':`/checkout/linea-adicional/paso2/?plan=${formData.selectedPlan}​`, 
+        'virtualPageTitle':'Checkout - Linea adicional - Despacho ', 
+        'rut':`${formData.rut}`,
+        'tipoPlan':`${formData.planType}`,
+        'numeroPortar':`${formData.phoneToMigrate}`
+      });
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event':'pagina-virtual', 
+        'virtualPageURL':`/checkout/linea-adicional/paso2b/?plan=${formData.selectedPlan}​`, 
+        'virtualPageTitle':'Checkout - Linea adicional - Despacho - Destino', 
+        'rut':`${formData.rut}`,
+        'tipoPlan':`${formData.planType}`,
+        'numeroPortar':`${formData.phoneToMigrate}`
+      });
+      /*window.dataLayer.push({
+        'event':'evento-interactivo', 
+        'evento-interactivo-categoria':'Error',
+        'evento-interactivo-accion':'Linea adicional - Despacho',
+        'evento-interactivo-etiqueta':`Comuna sin cobertura -​ ${formData.dispatchComuna}`
+      });*/
     }
   }, [dispatchRegion, dispatchComuna, regioneComunasList]);
 
@@ -487,6 +525,7 @@ const Step2 = (props) => {
             disabledFields={formData.beSameWithDispatch}
           />
           <ButtonWrapper />
+          <BajadaInfoBottom>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfoBottom>
         </RadiusContentWrapper>
       )}
     </>

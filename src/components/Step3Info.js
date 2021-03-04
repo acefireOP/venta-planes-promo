@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import modifyDesktop from "../images/modifyDesktop.svg";
 import modifyMobile from "../images/modifyMobile.svg";
 import IcoUpload from "../images/upload.svg";
-import contrato from "../assets/contrato_planes_y_tarifas_ecommerce.pdf";
+import contrato from "../assets/solicitud_servicio_anexo_planes_y_tarifas_ecommerce_marzo_2021.pdf";
 
 const PlanSummary = styled.div`
   flex: 1;

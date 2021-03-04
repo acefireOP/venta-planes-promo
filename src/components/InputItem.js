@@ -329,7 +329,7 @@ const InputItem = ({
           ...validationData,
           [nameInput]: false,
         });
-      } else if (formData[nameInput].trim().length < 3) {
+      } else if (formData[nameInput].trim().length < 2) {
         invalidSetter(nameInput, false, true);
         setErrorMessage("Mínimo 3 caracteres");
       } else {

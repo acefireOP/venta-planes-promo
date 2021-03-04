@@ -5,8 +5,8 @@ import firebase from "firebase";
 import "firebase/firestore";
 import { FormContext } from "../context/FormContext";
 import CheckboxOn from "../images/checkbox-on.svg";
-import document from "../assets/terminos-y-condiciones-wom-octubre2020.pdf";
-import ReactGA from "react-ga";
+import document from "../assets/terminos_y_condiciones_wom_marzo_2021.pdf";
+//import ReactGA from "react-ga";
 import axios from "axios";
 const Conditions = styled.div`
   width: 100%;
@@ -108,6 +108,20 @@ const Conditions = styled.div`
     }
   }
 `;
+const BajadaInfoBottom = styled.h3`
+  font-size: 16px;
+  line-height: 20px;
+  color: #7c6c8a;
+  margin: 20px 0 0;
+  text-align: center;
+  display: none;
+  .contact-tel{
+    color: #7c6c8a;
+  }
+  @media(max-width:768px){
+    display: block;
+  }
+`;
 
 const Step3Conditions = () => {
   const [checked, setChecked] = useState(false);
@@ -119,7 +133,7 @@ const Step3Conditions = () => {
     let ventaPlanesRef = firebase.firestore().collection("venta-planes-test");
     setSending(true);
 
-    ReactGA.set(formData);
+    //ReactGA.set(formData);
     const data = {
       creationDate: sendDate,
       selectedPlan: formData.selectedPlan,
@@ -183,6 +197,7 @@ const Step3Conditions = () => {
       >
         {sending ? "Enviando..." : "Ingresar solicitud"}
       </button>
+      <BajadaInfoBottom>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfoBottom>
     </Conditions>
   );
 };

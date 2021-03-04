@@ -3,15 +3,13 @@ import styled from "styled-components";
 import { FormContext } from "../context/FormContext";
 
 import PlanPromo50Dcto from "../images/planes/plan-promo-50dcto.svg";
-import PlanPromo15Gb50Dcto from "../images/planes/plan-15gb-50dcto.svg";
 import PlanPromo30Gb50Dcto from "../images/planes/plan-promo-30-gigas.svg";
-import PlanPromo15GbLineaAdicional from "../images/planes/plan-15gb-linea-adicional.svg";
-import PlanPromo20GbLineaAdicional from "../images/planes/plan-20gigas.svg";
-import PlanPromo40GbLineaAdicional from "../images/planes/plan-40gigas.svg";
-import PlanPromo60GbLineaAdicional from "../images/planes/plan-60gigas.svg";
-import PlanPromo80GbLineaAdicional from "../images/planes/plan-80gigas.svg";
-import PlanPromo100GbLineaAdicional from "../images/planes/plan-100gigas.svg";
-import PlanPromoLibreLineaAdicional from "../images/planes/plan-libre.svg";
+import PlanLineaAdicional25Dcto from "../images/planes/plan-25dcto.svg";
+import PlanLineaAdicional50Dcto from "../images/planes/plan-50dcto.svg";
+import PlanLineaAdicional75Dcto from "../images/planes/plan-75dcto.svg";
+import PlanLineaAdicional100Dcto from "../images/planes/plan-100dcto.svg";
+import PlanLineaAdicional125Dcto from "../images/planes/plan-125dcto.svg";
+import PlanLineaAdicionalLibreDcto from "../images/planes/plan-libredcto.svg";
 
 const PlanRequested = styled.div`
   margin-right: 60px;
@@ -42,36 +40,14 @@ const Step3Plan = () => {
     <PlanRequested>
       <h2>Plan Solicitado</h2>
       <div className="planImage">
-        {formData.selectedPlan === "promo-50dcto" && (
-          <img src={PlanPromo50Dcto} alt="plan Promo 50% dcto" />
-        )}
-        {formData.selectedPlan === "15gb-50dcto" && (
-          <img src={PlanPromo15Gb50Dcto} alt="plan Promo 15gb 50dcto" />
-        )}
-        {formData.selectedPlan === "30gb-50dcto" && (
-          <img src={PlanPromo30Gb50Dcto} alt="plan Promo 30gb 50dcto" />
-        )}
-        {formData.selectedPlan === "15gb-linea-adicional" && (
-          <img src={PlanPromo15GbLineaAdicional} alt="plan Promo 15gb línea adicional" />
-        )}
-        {formData.selectedPlan === "linea-adicional-20gb" && (
-            <img src={PlanPromo20GbLineaAdicional} alt="plan promo 20gb línea adicional" />
-          )}
-          {formData.selectedPlan === "linea-adicional-40gb" && (
-            <img src={PlanPromo40GbLineaAdicional} alt="plan promo 40gb línea adicional" />
-          )}
-          {formData.selectedPlan === "linea-adicional-60gb" && (
-            <img src={PlanPromo60GbLineaAdicional} alt="plan promo 60gb línea adicional" />
-          )}
-          {formData.selectedPlan === "linea-adicional-80gb" && (
-            <img src={PlanPromo80GbLineaAdicional} alt="plan promo 80gb línea adicional" />
-          )}
-          {formData.selectedPlan === "linea-adicional-100gb" && (
-            <img src={PlanPromo100GbLineaAdicional} alt="plan promo 100gb línea adicional" />
-          )}
-          {formData.selectedPlan === "linea-adicional-libre" && (
-            <img src={PlanPromoLibreLineaAdicional} alt="plan promo Libre línea adicional" />
-          )}
+        {formData.selectedPlan === "promo-50dcto" && (<img src={PlanPromo50Dcto} alt="plan Promo 50% dcto" />)}
+        {formData.selectedPlan === "30gb-50dcto" && (<img src={PlanPromo30Gb50Dcto} alt="plan Promo 30gb 50dcto" />)}
+        {formData.selectedPlan === "linea-adicional-25dcto" && (  <img src={PlanLineaAdicional25Dcto} alt="plan promo línea adicional 25dcto cliente" />)}
+        {formData.selectedPlan === "linea-adicional-50dcto" && ( <img src={PlanLineaAdicional50Dcto} alt="plan promo línea adicional 50dcto cliente" />)}
+        {formData.selectedPlan === "linea-adicional-75dcto" && (  <img src={PlanLineaAdicional75Dcto} alt="plan promo línea adicional 75dcto cliente" />)}
+        {formData.selectedPlan === "linea-adicional-100dcto" && ( <img src={PlanLineaAdicional100Dcto} alt="plan promo línea adicional 100dcto cliente" />)}
+        {formData.selectedPlan === "linea-adicional-125dcto" && ( <img src={PlanLineaAdicional125Dcto} alt="plan promo línea adicional 125dcto cliente" />)}
+        {formData.selectedPlan === "linea-adicional-libredcto" && ( <img src={PlanLineaAdicionalLibreDcto} alt="plan promo línea adicional libre dcto cliente" />)}
       </div>
     </PlanRequested>
   );

@@ -10,7 +10,7 @@ import Step1PhoneMessage from "./Step1PhoneMessage";
 import TitleBlock from "./TitleBlock";
 import NextButton from "./NextButton";
 import { motion, AnimatePresence } from "framer-motion";
-import ReactGA from "react-ga";
+//import ReactGA from "react-ga";
 import RequestPlan from "./RequestPlan";
 import RequestPlanMob from "./RequestPlanMob";
 import RadiusContentWrapper from "./RadiusContentWrapper";
@@ -71,6 +71,20 @@ const BajadaText = styled.p`
 `;
 const MotionDiv = styled(motion.div)`
   width: 100%;
+`;
+const BajadaInfoBottom = styled.h3`
+  font-size: 16px;
+  line-height: 20px;
+  color: #7c6c8a;
+  margin: 20px 0 0;
+  text-align: center;
+  display: none;
+  .contact-tel{
+    color: #7c6c8a;
+  }
+  @media(max-width:768px){
+    display: block;
+  }
 `;
 const VoidContainer = styled.div`
   width: 90%;
@@ -146,15 +160,24 @@ const Step1 = ({ location }) => {
 
   useEffect(() => {
     setFormData({ ...formData, selectedPlan: parsed.plan, successFlow: false });
-    ReactGA.pageview(window.location.pathname + parsed.plan);
+    //ReactGA.pageview(window.location.pathname + parsed.plan);
     /*let seleccion = parsed.plan.split("-");
     parsed.plan = seleccion[0]
     let promo = seleccion[1]
     console.log(promo)*/
     window.scrollTo(0, 0);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event':'pagina-virtual', 
+      'virtualPageURL':`/checkout/linea-adicional/paso1/?plan=${formData.selectedPlan}​`, 
+      'virtualPageTitle':'Checkout - Linea adicional - Datos Personales ', 
+      'rut':`${formData.rut}`,
+      'tipoPlan':`${formData.planType}`,
+      'numeroPortar':`${formData.phoneToMigrate}`
+    });
   }, []);
 
- /* const redirectUrl = () => {
+  /*const redirectUrl = () => {
     if(formData.selectedPlan === "promo-50dcto"){
       window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=promo-50dcto"
     } else if(formData.selectedPlan === "30gb-50dcto"){
@@ -171,31 +194,33 @@ const Step1 = ({ location }) => {
   if (
     (formData.selectedPlan !== undefined && formData.selectedPlan === "promo-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "30gb-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-20gb") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-40gb") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-60gb") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-80gb") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-100gb") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-libre")
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-25dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-75dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-100dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-125dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-libredcto")
   ) {
     return (
       <>
         {window.innerWidth >= 768 ? <RequestPlan /> : <RequestPlanMob />}
         <RadiusContentWrapper>
           <StepWrapper>
-            {formData.selectedPlan === "30gb-50dcto" || formData.selectedPlan === "15gb-linea-adicional" || formData.selectedPlan === "15gb-50dcto" ?
+            {
+              (
+                formData.selectedPlan === "30gb-50dcto"
+              ) ?
               <> 
                 {formData.selectedPlan === undefined && <h1>Solicita tu plan WOM en línea</h1>}
                 {formData.selectedPlan === 'promo-50dcto' && <h1>Solicita tu plan WOM en línea</h1>}
-                {formData.selectedPlan === '15gb-50dcto' && <h1>Solicita tu segunda línea WOM</h1>}
                 {formData.selectedPlan === '30gb-50dcto' && <h1>Solicita tu plan WOM en línea</h1>}
-                {formData.selectedPlan === '15gb-linea-adicional' && <h1>Solicita tu línea GRATIS</h1>}
-                {formData.selectedPlan === 'linea-adicional-20gb' && <h1>Solicita tu línea GRATIS</h1>}
-                {formData.selectedPlan === 'linea-adicional-40gb' && <h1>Solicita tu línea GRATIS</h1>}
-                {formData.selectedPlan === 'linea-adicional-60gb' && <h1>Solicita tu línea GRATIS</h1>}
-                {formData.selectedPlan === 'linea-adicional-80gb' && <h1>Solicita tu línea GRATIS</h1>}
-                {formData.selectedPlan === 'linea-adicional-100gb' && <h1>Solicita tu línea GRATIS</h1>}
-                {formData.selectedPlan === 'linea-adicional-libre' && <h1>Solicita tu línea GRATIS</h1>}
+                {formData.selectedPlan === 'linea-adicional-25dcto' && <h1>Solicita tu línea GRATIS</h1>}
+                {formData.selectedPlan === 'linea-adicional-50dcto' && <h1>Solicita tu línea GRATIS</h1>}
+                {formData.selectedPlan === 'linea-adicional-75dcto' && <h1>Solicita tu línea GRATIS</h1>}
+                {formData.selectedPlan === 'linea-adicional-100dcto' && <h1>Solicita tu línea GRATIS</h1>}
+                {formData.selectedPlan === 'linea-adicional-125dcto' && <h1>Solicita tu línea GRATIS</h1>}
+                {formData.selectedPlan === 'linea-adicional-libredcto' && <h1>Solicita tu línea GRATIS</h1>}
+
                 <div className="plan-types-container">
                   <div className="planTypeWrapper">
                     <PlanType
@@ -295,6 +320,7 @@ const Step1 = ({ location }) => {
                 />
               ) : null}
             </div>
+            <BajadaInfoBottom>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfoBottom>
           </StepWrapper>
         </RadiusContentWrapper>
       </>
@@ -304,7 +330,13 @@ const Step1 = ({ location }) => {
       <>
         {
           formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-linea-adicional" ||
-          formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-50dcto"
+          formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-50dcto" ||
+          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-20gb" ||
+          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-40gb" ||
+          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-60gb" ||
+          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-80gb" ||
+          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-100gb" ||
+          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-libre"
           ?
           <VoidContainer>
             <h1 className="font-20-px">Esta promoción ya no está disponible</h1>
