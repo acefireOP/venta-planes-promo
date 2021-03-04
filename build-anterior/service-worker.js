@@ -14,7 +14,11 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
+<<<<<<< HEAD
   "/seguro/venta-planes/precache-manifest.396cb69d8b1c5dc7d82a619274eefb66.js"
+=======
+  "/seguro/venta-planes/precache-manifest.31a000e9e379805bef61d06ae1489df7.js"
+>>>>>>> 8fb44b2804d908e08555f5544a11453c802093d8
 );
 
 self.addEventListener('message', (event) => {

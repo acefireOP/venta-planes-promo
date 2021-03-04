@@ -44,6 +44,7 @@ const ButtonWrap = styled(Link)`
 `;
 
 const NextButton = ({ stepNum, stepTitle, status, route }) => {
+
   return (
     <ButtonWrap className={status === "active" && "active"} to={route}>
       <div className="text-box">

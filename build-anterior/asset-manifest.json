@@ -1,6 +1,7 @@
 {
   "files": {
     "main.css": "/seguro/venta-planes/static/css/main.6538f4d9.chunk.css",
+<<<<<<< HEAD
     "main.js": "/seguro/venta-planes/static/js/main.1dbcbc6a.chunk.js",
     "main.js.map": "/seguro/venta-planes/static/js/main.1dbcbc6a.chunk.js.map",
     "runtime-main.js": "/seguro/venta-planes/static/js/runtime-main.1156d9eb.js",
@@ -12,6 +13,19 @@
     "service-worker.js": "/seguro/venta-planes/service-worker.js",
     "static/css/main.6538f4d9.chunk.css.map": "/seguro/venta-planes/static/css/main.6538f4d9.chunk.css.map",
     "static/js/2.d0cd7552.chunk.js.LICENSE.txt": "/seguro/venta-planes/static/js/2.d0cd7552.chunk.js.LICENSE.txt",
+=======
+    "main.js": "/seguro/venta-planes/static/js/main.2b71be47.chunk.js",
+    "main.js.map": "/seguro/venta-planes/static/js/main.2b71be47.chunk.js.map",
+    "runtime-main.js": "/seguro/venta-planes/static/js/runtime-main.1156d9eb.js",
+    "runtime-main.js.map": "/seguro/venta-planes/static/js/runtime-main.1156d9eb.js.map",
+    "static/js/2.1a274563.chunk.js": "/seguro/venta-planes/static/js/2.1a274563.chunk.js",
+    "static/js/2.1a274563.chunk.js.map": "/seguro/venta-planes/static/js/2.1a274563.chunk.js.map",
+    "index.html": "/seguro/venta-planes/index.html",
+    "precache-manifest.31a000e9e379805bef61d06ae1489df7.js": "/seguro/venta-planes/precache-manifest.31a000e9e379805bef61d06ae1489df7.js",
+    "service-worker.js": "/seguro/venta-planes/service-worker.js",
+    "static/css/main.6538f4d9.chunk.css.map": "/seguro/venta-planes/static/css/main.6538f4d9.chunk.css.map",
+    "static/js/2.1a274563.chunk.js.LICENSE.txt": "/seguro/venta-planes/static/js/2.1a274563.chunk.js.LICENSE.txt",
+>>>>>>> 8fb44b2804d908e08555f5544a11453c802093d8
     "static/media/fonts.css": "/seguro/venta-planes/static/media/CeraPro-Regular.f582d3a2.ttf",
     "static/media/Vector.svg": "/seguro/venta-planes/static/media/Vector.a18b894b.svg",
     "static/media/arrow_2.svg": "/seguro/venta-planes/static/media/arrow_2.d81fb18b.svg",
@@ -43,12 +57,23 @@
     "static/media/logowom.svg": "/seguro/venta-planes/static/media/logowom.97852189.svg",
     "static/media/modifyDesktop.svg": "/seguro/venta-planes/static/media/modifyDesktop.a7664078.svg",
     "static/media/modifyMobile.svg": "/seguro/venta-planes/static/media/modifyMobile.9797a8b2.svg",
+<<<<<<< HEAD
     "static/media/plan-100dcto.svg": "/seguro/venta-planes/static/media/plan-100dcto.5c67f205.svg",
     "static/media/plan-125dcto.svg": "/seguro/venta-planes/static/media/plan-125dcto.eb89cb5e.svg",
     "static/media/plan-25dcto.svg": "/seguro/venta-planes/static/media/plan-25dcto.b653ad60.svg",
     "static/media/plan-50dcto.svg": "/seguro/venta-planes/static/media/plan-50dcto.4d1f1b22.svg",
     "static/media/plan-75dcto.svg": "/seguro/venta-planes/static/media/plan-75dcto.ec3b90c5.svg",
     "static/media/plan-libredcto.svg": "/seguro/venta-planes/static/media/plan-libredcto.04a7b659.svg",
+=======
+    "static/media/plan-100gigas.svg": "/seguro/venta-planes/static/media/plan-100gigas.7334c9a9.svg",
+    "static/media/plan-15gb-50dcto.svg": "/seguro/venta-planes/static/media/plan-15gb-50dcto.6c4dffa8.svg",
+    "static/media/plan-15gb-linea-adicional.svg": "/seguro/venta-planes/static/media/plan-15gb-linea-adicional.e098a466.svg",
+    "static/media/plan-20gigas.svg": "/seguro/venta-planes/static/media/plan-20gigas.11cd8d8f.svg",
+    "static/media/plan-40gigas.svg": "/seguro/venta-planes/static/media/plan-40gigas.e1d3b05a.svg",
+    "static/media/plan-60gigas.svg": "/seguro/venta-planes/static/media/plan-60gigas.db55a2e6.svg",
+    "static/media/plan-80gigas.svg": "/seguro/venta-planes/static/media/plan-80gigas.117c41f0.svg",
+    "static/media/plan-libre.svg": "/seguro/venta-planes/static/media/plan-libre.be22d5ca.svg",
+>>>>>>> 8fb44b2804d908e08555f5544a11453c802093d8
     "static/media/plan-promo-30-gigas.svg": "/seguro/venta-planes/static/media/plan-promo-30-gigas.7a1f987b.svg",
     "static/media/plan-promo-50dcto.svg": "/seguro/venta-planes/static/media/plan-promo-50dcto.14b7e55e.svg",
     "static/media/storeAddress.svg": "/seguro/venta-planes/static/media/storeAddress.a1da3b7e.svg",
@@ -60,8 +85,14 @@
   },
   "entrypoints": [
     "static/js/runtime-main.1156d9eb.js",
+<<<<<<< HEAD
     "static/js/2.d0cd7552.chunk.js",
     "static/css/main.6538f4d9.chunk.css",
     "static/js/main.1dbcbc6a.chunk.js"
+=======
+    "static/js/2.1a274563.chunk.js",
+    "static/css/main.6538f4d9.chunk.css",
+    "static/js/main.2b71be47.chunk.js"
+>>>>>>> 8fb44b2804d908e08555f5544a11453c802093d8
   ]
 }
