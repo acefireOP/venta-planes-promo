@@ -127,6 +127,7 @@ const Steps = styled.div`
   }
 `;
 
+
 const Header = () => {
   const { formData } = useContext(FormContext);
   return (
@@ -138,8 +139,6 @@ const Header = () => {
             {
               (
                 formData.selectedPlan === undefined ||
-                formData.selectedPlan !== 'promo-50dcto' ||
-                formData.selectedPlan !== '30gb-50dcto' ||
                 formData.selectedPlan !== 'linea-adicional-25dcto' ||
                 formData.selectedPlan !== 'linea-adicional-50dcto' ||
                 formData.selectedPlan !== 'linea-adicional-75dcto' ||
@@ -149,29 +148,23 @@ const Header = () => {
               )
               && <TitleSection></TitleSection>
             }
-            {formData.selectedPlan === 'promo-50dcto' && <TitleSection>Proceso de portabilidad</TitleSection>}
-            {formData.selectedPlan === '30gb-50dcto' && <TitleSection>Proceso de portabilidad</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-25dcto' && <TitleSection>¡SIEMPRE QUEREMOS DARTE MÁS!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-50dcto' && <TitleSection>¡SIEMPRE QUEREMOS DARTE MÁS!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-75dcto' && <TitleSection>¡SIEMPRE QUEREMOS DARTE MÁS!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-100dcto' && <TitleSection>¡SIEMPRE QUEREMOS DARTE MÁS!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-125dcto' && <TitleSection>¡SIEMPRE QUEREMOS DARTE MÁS!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-libredcto' && <TitleSection>¡SIEMPRE QUEREMOS DARTE MÁS!</TitleSection>}
+            {formData.selectedPlan === 'linea-adicional-25dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === 'linea-adicional-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === 'linea-adicional-75dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === 'linea-adicional-100dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === 'linea-adicional-125dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === 'linea-adicional-libredcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
             
             
             {formData.selectedPlan === undefined && <SubTitleSection></SubTitleSection>}
-            {formData.selectedPlan === 'promo-50dcto' && <SubTitleSection>Portándote al nuevo plan de 40 gigas obtendrás un 50% de descuento en cargo fijo mensual</SubTitleSection>}
-            {formData.selectedPlan === '30gb-50dcto' && <SubTitleSection>Portándote al plan de 30 gigas obtendrás un 50% de descuento en cargo fijo mensual</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-25dcto' && <SubTitleSection>Ingresas tus datos para pedir tu LÍNEA ADICIONAL SIN COSTO POR 1 AÑO</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-50dcto' && <SubTitleSection>Ingresas tus datos para pedir tu LÍNEA ADICIONAL SIN COSTO POR 1 AÑO</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-75dcto' && <SubTitleSection>Ingresas tus datos para pedir tu LÍNEA ADICIONAL SIN COSTO POR 1 AÑO</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-100dcto' && <SubTitleSection>Ingresas tus datos para pedir tu LÍNEA ADICIONAL SIN COSTO POR 1 AÑO</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-125dcto' && <SubTitleSection>Ingresas tus datos para pedir tu LÍNEA ADICIONAL SIN COSTO POR 1 AÑO</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-libredcto' && <SubTitleSection>Ingresas tus datos para pedir tu LÍNEA ADICIONAL SIN COSTO POR 1 AÑO</SubTitleSection>}
+            {formData.selectedPlan === 'linea-adicional-25dcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
+            {formData.selectedPlan === 'linea-adicional-50dcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
+            {formData.selectedPlan === 'linea-adicional-75dcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
+            {formData.selectedPlan === 'linea-adicional-100dcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
+            {formData.selectedPlan === 'linea-adicional-125dcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
+            {formData.selectedPlan === 'linea-adicional-libredcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
 
             {formData.selectedPlan === undefined && <BajadaInfo></BajadaInfo>}
-            {formData.selectedPlan === 'promo-50dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>}
-            {formData.selectedPlan === '30gb-50dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>}
             {formData.selectedPlan === 'linea-adicional-25dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>}
             {formData.selectedPlan === 'linea-adicional-50dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>}
             {formData.selectedPlan === 'linea-adicional-75dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>}
@@ -183,8 +176,6 @@ const Header = () => {
         {formData.successFlow === false ? (
 
           (
-            formData.selectedPlan === 'promo-50dcto' ||
-            formData.selectedPlan === '30gb-50dcto' ||
             formData.selectedPlan === 'linea-adicional-25dcto' ||
             formData.selectedPlan === 'linea-adicional-50dcto' ||
             formData.selectedPlan === 'linea-adicional-75dcto' ||

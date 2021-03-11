@@ -166,7 +166,7 @@ const Step1 = ({ location }) => {
     let promo = seleccion[1]
     console.log(promo)*/
     window.scrollTo(0, 0);
-    window.dataLayer = window.dataLayer || [];
+    /*window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       'event':'pagina-virtual', 
       'virtualPageURL':`/checkout/linea-adicional/paso1/?plan=${formData.selectedPlan}​`, 
@@ -174,7 +174,7 @@ const Step1 = ({ location }) => {
       'rut':`${formData.rut}`,
       'tipoPlan':`${formData.planType}`,
       'numeroPortar':`${formData.phoneToMigrate}`
-    });
+    });*/
   }, []);
 
   /*const redirectUrl = () => {
@@ -192,8 +192,6 @@ const Step1 = ({ location }) => {
 
 
   if (
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "promo-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "30gb-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-25dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-75dcto") ||
@@ -214,12 +212,6 @@ const Step1 = ({ location }) => {
                 {formData.selectedPlan === undefined && <h1>Solicita tu plan WOM en línea</h1>}
                 {formData.selectedPlan === 'promo-50dcto' && <h1>Solicita tu plan WOM en línea</h1>}
                 {formData.selectedPlan === '30gb-50dcto' && <h1>Solicita tu plan WOM en línea</h1>}
-                {formData.selectedPlan === 'linea-adicional-25dcto' && <h1>Solicita tu línea GRATIS</h1>}
-                {formData.selectedPlan === 'linea-adicional-50dcto' && <h1>Solicita tu línea GRATIS</h1>}
-                {formData.selectedPlan === 'linea-adicional-75dcto' && <h1>Solicita tu línea GRATIS</h1>}
-                {formData.selectedPlan === 'linea-adicional-100dcto' && <h1>Solicita tu línea GRATIS</h1>}
-                {formData.selectedPlan === 'linea-adicional-125dcto' && <h1>Solicita tu línea GRATIS</h1>}
-                {formData.selectedPlan === 'linea-adicional-libredcto' && <h1>Solicita tu línea GRATIS</h1>}
 
                 <div className="plan-types-container">
                   <div className="planTypeWrapper">
@@ -245,25 +237,18 @@ const Step1 = ({ location }) => {
                 </div>
               </>
               :
-              notPlanType()
+              <>
+                {formData.selectedPlan === 'linea-adicional-25dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
+                {formData.selectedPlan === 'linea-adicional-50dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
+                {formData.selectedPlan === 'linea-adicional-75dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
+                {formData.selectedPlan === 'linea-adicional-100dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
+                {formData.selectedPlan === 'linea-adicional-125dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
+                {formData.selectedPlan === 'linea-adicional-libredcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
+                {notPlanType()}
+              </>
             }
             <AnimatePresence>
-              {formData.planType !== "" && (
-                <MotionDiv
-                  variants={variants}
-                  key="23236"
-                  initial="initial"
-                  animate="enter"
-                  exit="exit"
-                >
-                  <TitleBlock classAdd="mb-20" titulo="Información Personal" />
-                  <BajadaText>
-                    Ingresa tus datos y revisa que la información sea correcta.
-                  </BajadaText>
-                  <Step1Inputs />
-                </MotionDiv>
-              )}
-              {formData.planType === "portabilidad" && (
+            {formData.planType === "portabilidad" && (
                 <MotionDiv
                   variants={variants}
                   key="135sdg"
@@ -275,6 +260,38 @@ const Step1 = ({ location }) => {
                   <Step1InputsPortabilidad />
                 </MotionDiv>
               )}
+              
+              {
+                formData.originPlanType === "plan" ? 
+                (
+                  formData.planType !== "" && (
+                    <MotionDiv
+                      variants={variants}
+                      key="23236"
+                      initial="initial"
+                      animate="enter"
+                      exit="exit"
+                    >
+                      <TitleBlock classAdd="mb-20" titulo="Información Personal" />
+                      <BajadaText>
+                        Ingresa tus datos y revisa que la información sea correcta.
+                      </BajadaText>
+                    <Step1Inputs />
+                    </MotionDiv>
+                  )
+                ):(undefined)
+              }
+              {
+                formData.originPlanType === "prepago" ?
+                (
+                  <button>boton modal</button>
+                )
+                :
+                (
+                  undefined
+                )
+              }
+     
               {formData.planType === "lineaNueva" ||
               formData.planType === "portabilidad" ? null : (
                 <MotionDiv
@@ -288,38 +305,48 @@ const Step1 = ({ location }) => {
                 </MotionDiv>
               )}
             </AnimatePresence>
-            <div className="bot-button-container">
-              {formData.planType === "lineaNueva" ||
-              formData.planType === "portabilidad" ? (
-                <NextButton
-                  stepNum="2"
-                  stepTitle="Despacho"
-                  route="/paso2"
-                  status={
-                    formData.planType === "portabilidad"
-                      ? validationData.ci &&
-                        validationData.rut &&
-                        validationData.name &&
-                        validationData.lastName &&
-                        validationData.phone &&
-                        validationData.email &&
-                        validationData.phoneToMigrate &&
-                        validationData.originPlanType &&
-                        validationData.previousCarrier
-                        ? "active"
-                        : "innactive"
-                      : validationData.ci &&
-                        validationData.rut &&
-                        validationData.name &&
-                        validationData.lastName &&
-                        validationData.phone &&
-                        validationData.email
-                      ? "active"
-                      : "innactive"
-                  }
-                />
-              ) : null}
-            </div>
+            {
+              formData.originPlanType === "plan" ?
+              (
+                <div className="bot-button-container">
+                  {formData.planType === "lineaNueva" ||
+                  formData.planType === "portabilidad" ? (
+                    <NextButton
+                      stepNum="2"
+                      stepTitle="Despacho"
+                      route="/paso2"
+                      status={
+                        formData.planType === "portabilidad"
+                          ? validationData.ci &&
+                            validationData.rut &&
+                            validationData.name &&
+                            validationData.lastName &&
+                            validationData.phone &&
+                            validationData.email &&
+                            validationData.phoneToMigrate &&
+                            validationData.originPlanType &&
+                            validationData.previousCarrier
+                            ? "active"
+                            : "innactive"
+                          : validationData.ci &&
+                            validationData.rut &&
+                            validationData.name &&
+                            validationData.lastName &&
+                            validationData.phone &&
+                            validationData.email
+                          ? "active"
+                          : "innactive"
+                      }
+                    />
+                  ) : null}
+                </div>
+              )
+              :
+              (
+                null
+              )
+            }
+            
             <BajadaInfoBottom>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfoBottom>
           </StepWrapper>
         </RadiusContentWrapper>
@@ -329,6 +356,8 @@ const Step1 = ({ location }) => {
     return (
       <>
         {
+          formData.selectedPlan !== undefined && formData.selectedPlan === "promo-50dcto" ||
+          formData.selectedPlan !== undefined && formData.selectedPlan === "30gb-50dcto" ||
           formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-linea-adicional" ||
           formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-50dcto" ||
           formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-20gb" ||

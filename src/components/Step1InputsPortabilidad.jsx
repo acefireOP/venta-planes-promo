@@ -156,14 +156,6 @@ const Step1InputsPortabilidad = () => {
           deuda.
         </p>
       </AlertTopMessage>
-      <InputItem
-        nameInput="phoneToMigrate"
-        iconInput={IconPhone}
-        nameLabel="Teléfono a portar"
-        length="9"
-        fieldType="number"
-        exampleInput="Ej: 987654321"
-      />
       <ContentRadioButton>
         <p>Selecciona el tipo de plan que tienes hoy</p>
         <div className="buttons-radio">
@@ -193,7 +185,25 @@ const Step1InputsPortabilidad = () => {
           </div>
         </div>
       </ContentRadioButton>
-      <InputSelect />
+      {
+      formData.originPlanType === "plan" ? 
+      (
+        <>
+          <InputSelect />
+          <InputItem
+            nameInput="phoneToMigrate"
+            iconInput={IconPhone}
+            nameLabel="Teléfono a portar"
+            length="9"
+            fieldType="number"
+            exampleInput="Ej: 987654321"
+          />
+        </>
+      )
+      :
+        undefined
+      }
+      
     </WrapInputsInline>
   );
 };

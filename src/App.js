@@ -13,6 +13,7 @@ import Step1 from "./components/Step1";
 import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
 import Step4 from "./components/Step4";
+import RayoImg from './images/rayo.svg'
 import * as firebase from "firebase";
 //import ReactGA from "react-ga";
 
@@ -49,6 +50,38 @@ const PageWrapper = styled.div`
   align-items: center;
 `;
 
+const HuinchaTop = styled.div`
+  background-color: #ffffff;
+  padding: 5px 0;
+  article{
+    width: 100%;
+    max-width: 810px;
+    margin-left: auto;
+    margin-right: auto;
+    div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p{
+        font-size: 16px;
+        line-height: 18px;
+        color: #2D1441;
+        text-align: center;
+        margin: 0 15px;
+        b{
+          font-weight: bold;
+        }
+        br{
+          display: block;
+          @media(max-width: 640px){
+            display: none;
+          }
+        }
+      }
+    }
+  }
+`;
+
 function App() {
   return (
     <FormContextProvider>
@@ -56,6 +89,15 @@ function App() {
         <Router basename={"/seguro/venta-planes/"}>
           <GlobalStyle />
           <HeaderScene />
+          <HuinchaTop>
+            <article>
+              <div>
+                <img src={RayoImg} alt="rayo"></img>
+                <p>Pórtate a un plan, con un número desde cualquier compañía.<br></br> <b>Este número debe estar a tu nombre</b></p>
+                <img src={RayoImg} alt="rayo"></img>
+              </div>
+            </article>
+          </HuinchaTop>
           <Header />
           <PageWrapper>
             <Switch>

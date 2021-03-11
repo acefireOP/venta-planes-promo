@@ -20,7 +20,20 @@ const Step2 = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
   }, [formData.storeInfo]);
+
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event':'VirtualPageviewGeneral',
+      'virtualPageURL':`/checkout/linea-adicional/paso2/plan=${formData.selectedPlan}​`,
+      'virtualPageTitle' : 'Checkout - Linea adicional - Despacho ',
+      'rut':`${formData.rut}`,
+      'tipoPlan':`${formData.planType}`,
+      'numeroPortar':`${formData.phoneToMigrate}`
+    });
+  },[])
 
   return (
     <>

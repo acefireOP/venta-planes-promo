@@ -30,16 +30,28 @@ const Step3 = () => {
     /*ReactGA.pageview(
       window.location.pathname + `/?plan=${formData.selectedPlan}`
     );*/
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
+      
+   /* window.dataLayer.push({
       'event':'pagina-virtual', 
       'virtualPageURL':`/checkout/linea-adicional/paso3/?plan=${formData.selectedPlan}​`, 
-      'virtualPageTitle':'Checkout - Linea adicional - Confirmación ', 
+      'virtualPageTitle':'Checkout - Linea adicional - Despacho ', 
       'rut':`${formData.rut}`,
       'tipoPlan':`${formData.planType}`,
       'numeroPortar':`${formData.phoneToMigrate}`
-    });
+    });*/
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event':'VirtualPageviewGeneral',
+    'virtualPageURL':`/checkout/linea-adicional/paso3/plan=${formData.selectedPlan}​`,
+    'virtualPageTitle' : 'Checkout - Linea adicional - Despacho ',
+    'rut':`${formData.rut}`,
+    'tipoPlan':`${formData.planType}`,
+    'numeroPortar':`${formData.phoneToMigrate}`
+  });
   }, []);
+
+  
+
   return (
     <RadiusContentWrapper>
       <TitleBlock titulo="Resumen de tu solicitud" />

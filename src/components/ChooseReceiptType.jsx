@@ -262,8 +262,7 @@ const Step2 = (props) => {
       /*ReactGA.pageview(
         window.location.pathname + `/?plan=${formData.selectedPlan}`
       );*/
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
+      /*window.dataLayer.push({
         'event':'pagina-virtual', 
         'virtualPageURL':`/checkout/linea-adicional/paso2/?plan=${formData.selectedPlan}​`, 
         'virtualPageTitle':'Checkout - Linea adicional - Despacho ', 
@@ -279,7 +278,7 @@ const Step2 = (props) => {
         'rut':`${formData.rut}`,
         'tipoPlan':`${formData.planType}`,
         'numeroPortar':`${formData.phoneToMigrate}`
-      });
+      });*/
       /*window.dataLayer.push({
         'event':'evento-interactivo', 
         'evento-interactivo-categoria':'Error',
@@ -289,6 +288,26 @@ const Step2 = (props) => {
     }
   }, [dispatchRegion, dispatchComuna, regioneComunasList]);
 
+  /*window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event':'VirtualPageviewGeneral',
+    'virtualPageURL':`/checkout/linea-adicional/paso2/plan=${formData.selectedPlan}​`,
+    'virtualPageTitle' : 'Checkout - Linea adicional - Despacho ',
+    'rut':`${formData.rut}`,
+    'tipoPlan':`${formData.planType}`,
+    'numeroPortar':`${formData.phoneToMigrate}`
+  });
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event':'VirtualPageviewGeneral',
+    'virtualPageURL':`/checkout/linea-adicional/paso2b/plan=${formData.selectedPlan}​`,
+    'virtualPageTitle' : 'Checkout - Linea adicional - Destino ',
+    'rut':`${formData.rut}`,
+    'tipoPlan':`${formData.planType}`,
+    'numeroPortar':`${formData.phoneToMigrate}`
+  });*/
+  
   const disableStorePickup = () => {
     setHasStore(false);
     setStoreList([]);

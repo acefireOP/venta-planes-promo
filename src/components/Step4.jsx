@@ -160,7 +160,8 @@ const Step4 = () => {
     /*ReactGA.pageview(
       window.location.pathname + `/?plan=${formData.selectedPlan}`
     );*/
-    window.dataLayer = window.dataLayer || [];
+    
+    /*window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       'event':'pagina-virtual', 
       'virtualPageURL':`/checkout/linea-adicional/exito/?plan=${formData.selectedPlan}​`, 
@@ -168,12 +169,24 @@ const Step4 = () => {
       'rut':`${formData.rut}`,
       'tipoPlan':`${formData.planType}`,
       'numeroPortar':`${formData.phoneToMigrate}`
-    });
+    });*/
     /*window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       'event': 'solicitud-exitosa'
     });*/
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event':'VirtualPageviewGeneral',
+      'virtualPageURL':`/checkout/linea-adicional/exito/plan=${formData.selectedPlan}​`,
+      'virtualPageTitle' : 'Checkout - Linea adicional - Exito ',
+      'rut':`${formData.rut}`,
+      'tipoPlan':`${formData.planType}`,
+      'numeroPortar':`${formData.phoneToMigrate}`
+    });
   }, []);
+
+  
+
   return (
     <FinalSummary>
       <RadiusContentWrapper>
