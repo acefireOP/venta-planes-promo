@@ -184,7 +184,8 @@ const Header = () => {
             formData.selectedPlan === 'linea-adicional-libredcto'
           )  
           ?
-          <Steps>
+          formData.originPlanType === "plan" ? 
+          (<Steps>
             <picture className="tracks">
               <img src={Track} alt="track" />
               <img src={Track} alt="track" />
@@ -204,6 +205,9 @@ const Header = () => {
               <p>3</p>
             </NavLink>
           </Steps>
+          ):(
+            null
+          )
           :
           undefined
         ) : (

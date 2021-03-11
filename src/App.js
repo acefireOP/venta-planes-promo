@@ -14,6 +14,7 @@ import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
 import Step4 from "./components/Step4";
 import RayoImg from './images/rayo.svg'
+
 import * as firebase from "firebase";
 //import ReactGA from "react-ga";
 
@@ -83,6 +84,8 @@ const HuinchaTop = styled.div`
 `;
 
 function App() {
+  
+
   return (
     <FormContextProvider>
       <ValidationContextProvider>

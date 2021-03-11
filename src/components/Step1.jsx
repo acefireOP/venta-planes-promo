@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FormContext } from "../context/FormContext";
 import { ValidationContext } from "../context/ValidationContext";
 import queryString from "query-string";
@@ -11,9 +11,11 @@ import TitleBlock from "./TitleBlock";
 import NextButton from "./NextButton";
 import { motion, AnimatePresence } from "framer-motion";
 //import ReactGA from "react-ga";
+import ModalC2c from './ModalC2c'
 import RequestPlan from "./RequestPlan";
 import RequestPlanMob from "./RequestPlanMob";
 import RadiusContentWrapper from "./RadiusContentWrapper";
+
 import axios from "axios";
 
 const StepWrapper = styled.div`
@@ -128,6 +130,25 @@ const VoidContainer = styled.div`
   }
 `;
 
+const ButtonModal = styled.button`
+  max-width: 230px;
+  width: 100%;
+  background: #e92070;
+  cursor: pointer;
+  color: #ffffff;
+  transition: background .3s;
+  border-radius: 8px;
+  padding: 8px 15px;
+  height: 45px;
+  user-select: none;
+  border: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover{
+    background: #a5154f;
+  }
+`;
+
 const duration = 0.3;
 
 const variants = {
@@ -153,10 +174,11 @@ const variants = {
   },
 };
 
-const Step1 = ({ location }) => {
+const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
   const { formData, setFormData } = useContext(FormContext);
   const { validationData } = useContext(ValidationContext);
   const parsed = queryString.parse(location.search);
+  const [ openModalC2c, setOpenModalC2c ] = useState(false)
 
   useEffect(() => {
     setFormData({ ...formData, selectedPlan: parsed.plan, successFlow: false });
@@ -281,16 +303,6 @@ const Step1 = ({ location }) => {
                   )
                 ):(undefined)
               }
-              {
-                formData.originPlanType === "prepago" ?
-                (
-                  <button>boton modal</button>
-                )
-                :
-                (
-                  undefined
-                )
-              }
      
               {formData.planType === "lineaNueva" ||
               formData.planType === "portabilidad" ? null : (
@@ -343,10 +355,18 @@ const Step1 = ({ location }) => {
               )
               :
               (
-                null
+                formData.originPlanType === "prepago" &&
+                <div className="bot-button-container">
+                  <ButtonModal
+                   onClick={() => setOpenModalC2c(!openModalC2c)}
+                  >Quiero que me llamen</ButtonModal>
+                </div>
               )
             }
-            
+            <ModalC2c 
+              isOpenC2c={openModalC2c}
+              setIsOpenC2c={setOpenModalC2c}
+            />
             <BajadaInfoBottom>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfoBottom>
           </StepWrapper>
         </RadiusContentWrapper>

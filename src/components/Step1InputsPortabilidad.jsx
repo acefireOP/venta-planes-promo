@@ -109,6 +109,7 @@ const ContentRadioButton = styled.div`
   width: 48%;
   display: flex;
   flex-direction: column;
+  margin: 0 auto 15px;
   @media (max-width: 480px) {
     width: 100%;
     order: 3;
@@ -136,6 +137,13 @@ const ContentRadioButton = styled.div`
     }
   }
 `;
+const WrapPorta = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`
 
 const Step1InputsPortabilidad = () => {
   const { formData, setFormData } = useContext(FormContext);
@@ -188,7 +196,7 @@ const Step1InputsPortabilidad = () => {
       {
       formData.originPlanType === "plan" ? 
       (
-        <>
+        <WrapPorta>
           <InputSelect />
           <InputItem
             nameInput="phoneToMigrate"
@@ -198,7 +206,7 @@ const Step1InputsPortabilidad = () => {
             fieldType="number"
             exampleInput="Ej: 987654321"
           />
-        </>
+        </WrapPorta>
       )
       :
         undefined
