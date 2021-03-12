@@ -25,7 +25,7 @@ const ModalC2cContainer = styled(motion.div)`
     background: #FFFFFF;
     border-radius: 8px;
     position: relative;
-    padding: 30px;
+    padding: 10px;
     @media(max-width: 768px){
       width: 100%;
       border-radius: 0;
@@ -40,7 +40,7 @@ const ModalC2cContainer = styled(motion.div)`
       height: 100%;
       min-height: auto;
     }
-    iframe{
+    .iframe-c2c{
       width: 100%;
       height: 100%;
       border:0;
@@ -119,7 +119,7 @@ const ModalC2c = ({isOpenC2c, setIsOpenC2c}) => {
           src={IcoClose} alt="close"
           onClick={() => setIsOpenC2c(!isOpenC2c)}
         />
-        <iframe src="https://www.wom.cl/_formularios/_formulario-c2c-linea-adicional/"></iframe>
+        <iframe className="iframe-c2c" src="https://www.wom.cl/_formularios/_formulario-c2c-linea-adicional/"></iframe>
         {/*<button 
           className="modal-button"
           onClick={() => setIsOpenC2c(!isOpenC2c)}  
