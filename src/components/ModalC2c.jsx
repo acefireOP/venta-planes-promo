@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from "react";
+import { FormContext } from "../context/FormContext";
 import styled from 'styled-components'
 import { motion } from "framer-motion";
 import GroupPhone from '../images/group-phone.svg'
@@ -39,13 +40,6 @@ const ModalC2cContainer = styled(motion.div)`
       overflow-y: scroll;
       height: 100%;
       min-height: auto;
-    }
-    .iframe-c2c{
-      width: 100%;
-      height: 100%;
-      border:0;
-      padding:0;
-      margin:0;
     }
     .modal-button{
       width: 100%;
@@ -89,6 +83,13 @@ const ModalC2cContainer = styled(motion.div)`
     }
   }
 `
+const IframeC2c = styled.iframe`
+  width: 100%;
+  height: 100%;
+  border:0;
+  padding:0;
+  margin:0;
+`;
 
 const variantsModalC2c = {
   visible: {
@@ -106,7 +107,7 @@ const variantsModalC2c = {
 
 
 const ModalC2c = ({isOpenC2c, setIsOpenC2c}) => {
-
+  const { formData, setFormData } = useContext(FormContext);
   return (
     <ModalC2cContainer
       variants={variantsModalC2c}
@@ -119,7 +120,7 @@ const ModalC2c = ({isOpenC2c, setIsOpenC2c}) => {
           src={IcoClose} alt="close"
           onClick={() => setIsOpenC2c(!isOpenC2c)}
         />
-        <iframe className="iframe-c2c" src="https://www.wom.cl/_formularios/_formulario-c2c-linea-adicional/"></iframe>
+        <IframeC2c src={`https://www.wom.cl/_formularios/_formulario-c2c-linea-adicional/?plan=${formData.selectedPlan}`}></IframeC2c>
         {/*<button 
           className="modal-button"
           onClick={() => setIsOpenC2c(!isOpenC2c)}  
