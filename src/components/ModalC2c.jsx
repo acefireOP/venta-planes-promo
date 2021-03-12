@@ -40,94 +40,12 @@ const ModalC2cContainer = styled(motion.div)`
       height: 100%;
       min-height: auto;
     }
-
-    img{
-      display: block;
-      margin: 0 auto 20px;
-    }
-    h2{
-      font-weight: bold;
-      font-size: 24px;
-      line-height: 30px;
-      color: #381451;
-      margin-bottom: 25px;
-      text-align: center;
-      @media(max-width: 480px){
-        font-size: 20px;
-        line-height: 25px;
-      }
-    }
-    h3{
-      font-weight: bold;
-      font-size: 20px;
-      line-height: 25px;
-      color: #381451;
-      text-align: left;
-      margin-bottom: 8px;
-      @media(max-width: 480px){
-        font-size: 18px;
-        line-height: 23px;
-      }
-    }
-    h4{
-      font-weight: bold;
-      font-size: 18px;
-      line-height: 23px;
-      color: #574466;
-      text-align: left;
-      @media(max-width: 480px){
-        font-size: 16px;
-        line-height: 20px;
-      }
-    }
-    ul{
-      margin-bottom: 20px;
-      @media only screen and (min-device-width: 1280px) and (max-device-width: 1366px) and (min-device-height: 320px) and (max-device-height: 800px) {
-        margin-bottom: 10px;
-      }
-      &.list-number{
-        list-style: decimal;
-        padding: 0 0 0 40px;
-      }
-      &.list-dot{
-        padding: 0 0 0 24px;
-        li{
-          position: relative;
-          margin-bottom: 10px;
-          &:before{
-            content: "";
-            background-color: #76489B;
-            font-weight: bold;
-            width: 8px;
-            height: 8px;
-            border-radius: 4px;
-            position: absolute;
-            top: 11px;
-            left: -17px;
-          }
-        }
-      }
-      li{
-        font-size: 16px;
-        line-height: 28px;
-        color: #381451;
-        b{
-          font-weight: bold;
-        }
-        a{
-          color: #E92070;
-          transition: color .3s;
-          &:hover{
-            color: #961347;
-          }
-        }
-      }
-    }
-    span{
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 24px;
-      color: #381451;
+    iframe{
+      width: 100%;
+      height: 100%;
+      border:0;
+      padding:0;
+      margin:0;
     }
     .modal-button{
       width: 100%;
@@ -186,6 +104,7 @@ const variantsModalC2c = {
   },
 }
 
+
 const ModalC2c = ({isOpenC2c, setIsOpenC2c}) => {
 
   return (
@@ -200,20 +119,11 @@ const ModalC2c = ({isOpenC2c, setIsOpenC2c}) => {
           src={IcoClose} alt="close"
           onClick={() => setIsOpenC2c(!isOpenC2c)}
         />
-        <ul className="list-number">
-          <li>El número de serie de tu CI</li>
-          <li>Foto frontal y trasera de tu CI</li>
-          <li>El código IMEI de tu celular (el que puedes obtener marcando <b>*#06#</b>)</li>
-        </ul>
-        <ul className="list-dot">
-          <li>En el proceso te entregaremos un código CAP para realizar tu portabilidad. Recuerda ingresarlo a tiempo ya que solo dura 24 horas.</li>
-          <li>La portabilidad ocurre en la madrugada. Tu <b>Chip WOM</b> estará listo para funcionar en la mañana del día hábil siguiente. Si realizas tu portabilidad después de las 22 horas, la portabilidad se hará efectiva el día hábil subsiguiente.</li>
-        </ul>
-        <span>Una vez finalizada tu solicitud del chip, te enviaremos las instrucciones de portabilidad junto a tu Chip Prepago.</span>
-        <button 
+        <iframe src="https://www.wom.cl/_formularios/_formulario-c2c-linea-adicional/"></iframe>
+        {/*<button 
           className="modal-button"
           onClick={() => setIsOpenC2c(!isOpenC2c)}  
-        >aceptar</button>
+        >aceptar</button>*/}
       </div>
     </ModalC2cContainer>
   )
