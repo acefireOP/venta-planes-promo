@@ -13,7 +13,8 @@ import Step1 from "./components/Step1";
 import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
 import Step4 from "./components/Step4";
-import RayoImg from './images/rayo.svg'
+import RayoImg from './images/rayo.svg';
+
 
 import * as firebase from "firebase";
 //import ReactGA from "react-ga";
@@ -84,7 +85,6 @@ const HuinchaTop = styled.div`
 `;
 
 function App() {
-  
 
   return (
     <FormContextProvider>
@@ -101,7 +101,6 @@ function App() {
               </div>
             </article>
           </HuinchaTop>
-          <Header />
           <PageWrapper>
             <Switch>
               <Route exact path="/" component={Step1} />

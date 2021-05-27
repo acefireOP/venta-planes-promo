@@ -103,26 +103,24 @@ const AlertTopMessage = styled.div`
     font-weight: 300;
     line-height: 15px;
   }
+  b{
+    font-weight: bold;
+  }
 `;
 
 const ContentRadioButton = styled.div`
-  width: 48%;
+  width:100%;
   display: flex;
   flex-direction: column;
   margin: 0 auto 15px;
-  @media (max-width: 480px) {
-    width: 100%;
-    order: 3;
-  }
+
   p {
     font-size: 16px;
     line-height: 20px;
     color: #7c6c8a;
-    max-width: 234px;
-    align-self: flex-end;
+    text-align: center;
     @media (max-width: 480px) {
       max-width: 100%;
-      align-self: flex-start;
     }
   }
   .buttons-radio {
@@ -133,10 +131,13 @@ const ContentRadioButton = styled.div`
     margin-top: 15px;
     @media (max-width: 480px) {
       max-width: 215px;
+      margin: 20px auto 0;
+      width: 100%;
       justify-content: space-between;
     }
   }
 `;
+
 const WrapPorta = styled.div`
   display: flex;
   width: 100%;
@@ -157,15 +158,11 @@ const Step1InputsPortabilidad = () => {
   return (
     <WrapInputsInline>
       <AlertTopMessage>
-        <h2>Antes de solicitar una portabilidad, revisa que:</h2>
-        <p>
-          Llevas al menos 60 días en tu compañía actual o de tu última
-          portabilidad. Debes estar al día con tu última boleta y no tener
-          deuda.
-        </p>
+        <h2>IMPORTANTE: Antes de solicitar la portabilidad, revisa que:</h2>
+        <p>Llevas al menos 60 días en tu compañía actual o de tu última portabilidad. Debes estar al día con tu última boleta, no tener deuda y <b>ser el dueño del número a portar.</b></p>
       </AlertTopMessage>
       <ContentRadioButton>
-        <p>Selecciona el tipo de plan que tienes hoy</p>
+        <p>Indica la linea que quieres portar y selecciona si es Plan o Prepago.</p>
         <div className="buttons-radio">
           <div className="radio">
             <input
@@ -193,8 +190,7 @@ const Step1InputsPortabilidad = () => {
           </div>
         </div>
       </ContentRadioButton>
-      {
-      formData.originPlanType === "plan" ? 
+      {formData.originPlanType === "plan" && 
       (
         <WrapPorta>
           <InputSelect />
@@ -207,10 +203,21 @@ const Step1InputsPortabilidad = () => {
             exampleInput="Ej: 987654321"
           />
         </WrapPorta>
-      )
-      :
-        undefined
-      }
+      )}
+      {formData.originPlanType === "prepago" && 
+      (
+        <WrapPorta>
+          <InputSelect />
+          <InputItem
+            nameInput="phoneToMigrate"
+            iconInput={IconPhone}
+            nameLabel="Teléfono a portar"
+            length="9"
+            fieldType="number"
+            exampleInput="Ej: 987654321"
+          />
+        </WrapPorta>
+      )}
       
     </WrapInputsInline>
   );

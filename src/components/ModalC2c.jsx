@@ -12,7 +12,7 @@ const ModalC2cContainer = styled(motion.div)`
   position: fixed;
   top: 0;
   padding: 15px 0;
-  z-index: 99;
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,7 @@ const ModalC2cContainer = styled(motion.div)`
     }
     @media only screen and (min-device-width: 1280px) and (max-device-width: 1366px) and (min-device-height: 320px) and (max-device-height: 800px) {
       overflow-y: scroll;
-      height: 100%;
+      height: 600px;
       min-height: auto;
     }
     .modal-button{
@@ -77,6 +77,7 @@ const ModalC2cContainer = styled(motion.div)`
       right: 20px;
       cursor: pointer;
       transition: transform .3s;
+      z-index: 99;
       &:hover{
         transform: scale(1.1)
       }
@@ -89,6 +90,9 @@ const IframeC2c = styled.iframe`
   border:0;
   padding:0;
   margin:0;
+  position:relative;
+  z-index:9;
+  min-height: inherit;
 `;
 
 const variantsModalC2c = {
@@ -120,7 +124,7 @@ const ModalC2c = ({isOpenC2c, setIsOpenC2c}) => {
           src={IcoClose} alt="close"
           onClick={() => setIsOpenC2c(!isOpenC2c)}
         />
-        <IframeC2c src={`https://www.wom.cl/_formularios/_formulario-c2c-linea-adicional/?plan=${formData.selectedPlan}`}></IframeC2c>
+        <IframeC2c src={`https://www.wom.cl/_formularios/_formulario-c2c-linea-adicional/?plan=${formData.selectedPlan}&o=prepago`}></IframeC2c>
         {/*<button 
           className="modal-button"
           onClick={() => setIsOpenC2c(!isOpenC2c)}  

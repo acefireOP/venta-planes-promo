@@ -515,10 +515,10 @@ const Step2 = (props) => {
         ) : (
           <ButtonWrapper />
         )}
-      </RadiusContentWrapper>
+      
 
       {formData.dispatchType === "Despacho a domicilio" && (
-        <RadiusContentWrapper>
+        <>
           <TitleBlock
             classAdd="text-center"
             titulo="Dirección para tu contrato"
@@ -545,8 +545,9 @@ const Step2 = (props) => {
           />
           <ButtonWrapper />
           <BajadaInfoBottom>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfoBottom>
-        </RadiusContentWrapper>
+        </>
       )}
+      </RadiusContentWrapper>
     </>
   );
 };

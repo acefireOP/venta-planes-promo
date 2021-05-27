@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Header from './Header'
+
 
 const StepsBox = styled.div`
   width: 100%;
@@ -22,6 +24,11 @@ const StepsBox = styled.div`
 `;
 
 const RadiusContentWrapper = ({ children }) => {
-  return <StepsBox>{children}</StepsBox>;
+  return (
+    <>
+      <Header />
+      <StepsBox>{children}</StepsBox>
+    </>
+  )
 };
 export default RadiusContentWrapper;

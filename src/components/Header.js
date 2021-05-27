@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { FormContext } from "../context/FormContext";
 import Step4Message from "./Step4Message";
 import LogoWom from "../images/logowom.svg";
 import Track from "../images/track.svg";
+import ModalC2cGeneric from './ModalC2cGeneric';
 
 const HeaderWom = styled.header`
   width: 100%;
@@ -45,6 +46,10 @@ const SubTitleSection = styled.h3`
   color: #ffffff;
   margin: 0 0 25px;
   text-align: center;
+  span{
+    color: #E92070;
+    font-weight: 600;
+  }
 `;
 const BajadaInfo = styled.h3`
   font-size: 16px;
@@ -54,6 +59,11 @@ const BajadaInfo = styled.h3`
   text-align: center;
   .contact-tel{
     color:#ffffff;
+  }
+  span{
+    font-weight:bold;
+    text-decoration:underline;
+    cursor: pointer;
   }
 `;
 
@@ -128,10 +138,16 @@ const Steps = styled.div`
 `;
 
 
-const Header = () => {
-  const { formData } = useContext(FormContext);
+const Header = ({isOpenC2c, setIsOpenC2c}) => {
+  const { formData, setFormData } = useContext(FormContext);
+  const [ openModalC2c, setOpenModalC2c ] = useState(false);
+  
   return (
     <HeaderWom>
+      <ModalC2cGeneric 
+        isOpenC2c={openModalC2c}
+        setIsOpenC2c={setOpenModalC2c}
+      />
       <Wrapper>
         <img className="logowom" src={LogoWom} alt="wom header" />
         {formData.successFlow === false && (
@@ -139,53 +155,53 @@ const Header = () => {
             {
               (
                 formData.selectedPlan === undefined ||
-                formData.selectedPlan !== 'linea-adicional-25dcto' ||
-                formData.selectedPlan !== 'linea-adicional-50dcto' ||
-                formData.selectedPlan !== 'linea-adicional-75dcto' ||
-                formData.selectedPlan !== 'linea-adicional-100dcto' ||
-                formData.selectedPlan !== 'linea-adicional-125dcto' ||
-                formData.selectedPlan !== 'llinea-adicional-libredcto'
+                formData.selectedPlan !== '25gb-50dcto' ||
+                formData.selectedPlan !== '50gb-50dcto' ||
+                formData.selectedPlan !== '75gb-50dcto' ||
+                formData.selectedPlan !== '100gb-50dcto' ||
+                formData.selectedPlan !== '125gb-50dcto' ||
+                formData.selectedPlan !== 'libre-50dcto'
               )
               && <TitleSection></TitleSection>
             }
-            {formData.selectedPlan === 'linea-adicional-25dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-75dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-100dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-125dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
-            {formData.selectedPlan === 'linea-adicional-libredcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === '25gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === '50gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === '75gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === '100gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === '125gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === 'libre-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
             
             
             {formData.selectedPlan === undefined && <SubTitleSection></SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-25dcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-50dcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-75dcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-100dcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-125dcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
-            {formData.selectedPlan === 'linea-adicional-libredcto' && <SubTitleSection>Porta un plan adicional GRATIS por 1 año</SubTitleSection>}
+            {formData.selectedPlan === '25gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
+            {formData.selectedPlan === '50gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
+            {formData.selectedPlan === '75gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
+            {formData.selectedPlan === '100gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
+            {formData.selectedPlan === '125gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
+            {formData.selectedPlan === 'libre-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
 
             {formData.selectedPlan === undefined && <BajadaInfo></BajadaInfo>}
-            {formData.selectedPlan === 'linea-adicional-25dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>}
-            {formData.selectedPlan === 'linea-adicional-50dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>}
-            {formData.selectedPlan === 'linea-adicional-75dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>}
-            {formData.selectedPlan === 'linea-adicional-100dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>}
-            {formData.selectedPlan === 'linea-adicional-125dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>}
-            {formData.selectedPlan === 'linea-adicional-libredcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>}
+            {formData.selectedPlan === '25gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
+            {formData.selectedPlan === '50gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
+            {formData.selectedPlan === '75gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
+            {formData.selectedPlan === '100gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
+            {formData.selectedPlan === '125gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
+            {formData.selectedPlan === 'libre-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
+            {/*formData.selectedPlan === 'libre-50dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>*/}
           </>
         )}
         {formData.successFlow === false ? (
 
           (
-            formData.selectedPlan === 'linea-adicional-25dcto' ||
-            formData.selectedPlan === 'linea-adicional-50dcto' ||
-            formData.selectedPlan === 'linea-adicional-75dcto' ||
-            formData.selectedPlan === 'linea-adicional-100dcto' ||
-            formData.selectedPlan === 'linea-adicional-125dcto' ||
-            formData.selectedPlan === 'linea-adicional-libredcto'
+            formData.selectedPlan === '25gb-50dcto' ||
+            formData.selectedPlan === '50gb-50dcto' ||
+            formData.selectedPlan === '75gb-50dcto' ||
+            formData.selectedPlan === '100gb-50dcto' ||
+            formData.selectedPlan === '125gb-50dcto' ||
+            formData.selectedPlan === 'libre-50dcto'
           )  
           ?
-          formData.originPlanType === "plan" ? 
-          (<Steps>
+          <Steps>
             <picture className="tracks">
               <img src={Track} alt="track" />
               <img src={Track} alt="track" />
@@ -204,10 +220,8 @@ const Header = () => {
             <NavLink to="/paso3" activeClassName="step active" className="step">
               <p>3</p>
             </NavLink>
+   
           </Steps>
-          ):(
-            null
-          )
           :
           undefined
         ) : (

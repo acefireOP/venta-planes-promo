@@ -11,10 +11,12 @@ import TitleBlock from "./TitleBlock";
 import NextButton from "./NextButton";
 import { motion, AnimatePresence } from "framer-motion";
 //import ReactGA from "react-ga";
-import ModalC2c from './ModalC2c'
+import ModalC2c from './ModalC2c';
+import ModalC2cAuto from './ModalC2cAuto';
+import ModalC2cGeneric from "./ModalC2cGeneric";
+import RadiusContentWrapper from "./RadiusContentWrapper";
 import RequestPlan from "./RequestPlan";
 import RequestPlanMob from "./RequestPlanMob";
-import RadiusContentWrapper from "./RadiusContentWrapper";
 
 import axios from "axios";
 
@@ -89,18 +91,14 @@ const BajadaInfoBottom = styled.h3`
   }
 `;
 const VoidContainer = styled.div`
-  width: 90%;
+  width: 100%;
   max-width: 600px;
   height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.45);
-  border-radius: 8px;
   text-align: center;
-  padding: 15px;
   h1{
     color: rgb(45, 20, 65);
     font-weight: 600;
@@ -178,7 +176,7 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
   const { formData, setFormData } = useContext(FormContext);
   const { validationData } = useContext(ValidationContext);
   const parsed = queryString.parse(location.search);
-  const [ openModalC2c, setOpenModalC2c ] = useState(false)
+  const [ openModalC2c, setOpenModalC2c ] = useState(false);
 
   useEffect(() => {
     setFormData({ ...formData, selectedPlan: parsed.plan, successFlow: false });
@@ -214,12 +212,12 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
 
 
   if (
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-25dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-75dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-100dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-125dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-libredcto")
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "25gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "50gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "75gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "100gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "125gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "libre-50dcto")
   ) {
     return (
       <>
@@ -227,13 +225,20 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
         <RadiusContentWrapper>
           <StepWrapper>
             {
+              (formData.selectedPlan === "100gb-50dcto" ||
+              formData.selectedPlan === "125gb-50dcto" ||
+              formData.selectedPlan === "libre-50dcto") &&
+              <ModalC2cGeneric
+                isOpenC2c={"visible"}
+                setIsOpenC2c={setOpenModalC2c}
+              />
+            }
+            {
               (
                 formData.selectedPlan === "30gb-50dcto"
               ) ?
               <> 
                 {formData.selectedPlan === undefined && <h1>Solicita tu plan WOM en línea</h1>}
-                {formData.selectedPlan === 'promo-50dcto' && <h1>Solicita tu plan WOM en línea</h1>}
-                {formData.selectedPlan === '30gb-50dcto' && <h1>Solicita tu plan WOM en línea</h1>}
 
                 <div className="plan-types-container">
                   <div className="planTypeWrapper">
@@ -270,7 +275,7 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
               </>
             }
             <AnimatePresence>
-            {formData.planType === "portabilidad" && (
+              {formData.planType === "portabilidad" && (
                 <MotionDiv
                   variants={variants}
                   key="135sdg"
@@ -284,7 +289,7 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
               )}
               
               {
-                formData.originPlanType === "plan" ? 
+                (formData.originPlanType === "plan" || formData.originPlanType === "prepago") && 
                 (
                   formData.planType !== "" && (
                     <MotionDiv
@@ -295,14 +300,31 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
                       exit="exit"
                     >
                       <TitleBlock classAdd="mb-20" titulo="Información Personal" />
-                      <BajadaText>
-                        Ingresa tus datos y revisa que la información sea correcta.
-                      </BajadaText>
-                    <Step1Inputs />
+                      <BajadaText>Ingresa tus datos y revisa que la información sea correcta.</BajadaText>
+                      <Step1Inputs />
                     </MotionDiv>
                   )
-                ):(undefined)
+                )
               }
+
+              {/*
+                formData.originPlanType === "prepago" && 
+                (
+                  formData.planType !== "" && (
+                    <MotionDiv
+                      variants={variants}
+                      key="23236"
+                      initial="initial"
+                      animate="enter"
+                      exit="exit"
+                    >
+                      <TitleBlock classAdd="mb-20" titulo="Información Personal" />
+                      <BajadaText>Ingresa tus datos y revisa que la información sea correcta.</BajadaText>
+                      <Step1Inputs />
+                    </MotionDiv>
+                  )
+                )
+                  */}
      
               {formData.planType === "lineaNueva" ||
               formData.planType === "portabilidad" ? null : (
@@ -318,51 +340,75 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
               )}
             </AnimatePresence>
             {
-              formData.originPlanType === "plan" ?
-              (
+              formData.originPlanType === "plan" && (
                 <div className="bot-button-container">
                   {formData.planType === "lineaNueva" ||
                   formData.planType === "portabilidad" ? (
-                    <NextButton
-                      stepNum="2"
-                      stepTitle="Despacho"
-                      route="/paso2"
-                      status={
-                        formData.planType === "portabilidad"
-                          ? validationData.ci &&
-                            validationData.rut &&
-                            validationData.name &&
-                            validationData.lastName &&
-                            validationData.phone &&
-                            validationData.email &&
-                            validationData.phoneToMigrate &&
-                            validationData.originPlanType &&
-                            validationData.previousCarrier
-                            ? "active"
-                            : "innactive"
-                          : validationData.ci &&
-                            validationData.rut &&
-                            validationData.name &&
-                            validationData.lastName &&
-                            validationData.phone &&
-                            validationData.email
+                  <NextButton
+                    stepNum="2"
+                    stepTitle="Despacho"
+                    route="/paso2"
+                    status={
+                      formData.planType === "portabilidad"
+                        ? validationData.ci &&
+                          validationData.rut &&
+                          validationData.name &&
+                          validationData.lastName &&
+                          validationData.phone &&
+                          validationData.email &&
+                          validationData.phoneToMigrate &&
+                          validationData.originPlanType &&
+                          validationData.previousCarrier
                           ? "active"
                           : "innactive"
-                      }
-                    />
-                  ) : null}
-                </div>
-              )
-              :
-              (
-                formData.originPlanType === "prepago" &&
+                        : validationData.ci &&
+                          validationData.rut &&
+                          validationData.name &&
+                          validationData.lastName &&
+                          validationData.phone &&
+                          validationData.email
+                        ? "active"
+                        : "innactive"
+                    }
+                  />
+                ) : null}
+              </div>
+            )}
+            {
+              formData.originPlanType === "prepago" && (
                 <div className="bot-button-container">
-                  <ButtonModal
-                   onClick={() => setOpenModalC2c(!openModalC2c)}
-                  >Quiero que me llamen</ButtonModal>
-                </div>
-              )
-            }
+                  {formData.planType === "lineaNueva" ||
+                  formData.planType === "portabilidad" ? (
+                  <NextButton
+                    stepNum="2"
+                    stepTitle="Despacho"
+                    route="/paso2"
+                    status={
+                      formData.planType === "portabilidad"
+                        ? validationData.ci &&
+                          validationData.rut &&
+                          validationData.name &&
+                          validationData.lastName &&
+                          validationData.phone &&
+                          validationData.email &&
+                          validationData.phoneToMigrate &&
+                          validationData.originPlanType &&
+                          validationData.previousCarrier
+                          ? "active"
+                          : "innactive"
+                        : validationData.ci &&
+                          validationData.rut &&
+                          validationData.name &&
+                          validationData.lastName &&
+                          validationData.phone &&
+                          validationData.email
+                        ? "active"
+                        : "innactive"
+                    }
+                  />
+                ) : null}
+              </div>
+            )}
             <ModalC2c 
               isOpenC2c={openModalC2c}
               setIsOpenC2c={setOpenModalC2c}
@@ -375,29 +421,32 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
   } else {
     return (
       <>
+        <RadiusContentWrapper>
         {
-          formData.selectedPlan !== undefined && formData.selectedPlan === "promo-50dcto" ||
-          formData.selectedPlan !== undefined && formData.selectedPlan === "30gb-50dcto" ||
-          formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-linea-adicional" ||
-          formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-50dcto" ||
-          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-20gb" ||
-          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-40gb" ||
-          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-60gb" ||
-          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-80gb" ||
-          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-100gb" ||
-          formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-libre"
-          ?
-          <VoidContainer>
-            <h1 className="font-20-px">Esta promoción ya no está disponible</h1>
-            <h2>Atento, pronto te contaremos de nuevas promos!</h2>
-            <a className="link-a" href="https://www.wom.cl/" title="ir a wom">Ir a WOM.CL</a>
-          </VoidContainer>
-          :
-          <VoidContainer>
-            <h1>No hay plan seleccionado</h1>
-            <a className="link-a" href="https://www.wom.cl/" title="ir a wom">Ir a WOM.CL</a>
-          </VoidContainer>
-        }
+            formData.selectedPlan !== undefined && formData.selectedPlan === "promo-50dcto" ||
+            formData.selectedPlan !== undefined && formData.selectedPlan === "30gb-50dcto" ||
+            formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-linea-adicional" ||
+            formData.selectedPlan !== undefined && formData.selectedPlan === "15gb-50dcto" ||
+            formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-20gb" ||
+            formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-40gb" ||
+            formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-60gb" ||
+            formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-80gb" ||
+            formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-100gb" ||
+            formData.selectedPlan !== undefined && formData.selectedPlan === "linea-adicional-libre"
+            ?
+            <VoidContainer>
+              <h1 className="font-20-px">Esta promoción ya no está disponible</h1>
+              <h2>Atento, pronto te contaremos de nuevas promos!</h2>
+              <a className="link-a" href="https://www.wom.cl/" title="ir a wom">Ir a WOM.CL</a>
+            </VoidContainer>
+            :
+            <VoidContainer>
+              <h1>No hay plan seleccionado</h1>
+              <a className="link-a" href="https://www.wom.cl/" title="ir a wom">Ir a WOM.CL</a>
+            </VoidContainer>
+          }
+        </RadiusContentWrapper>
+        
       </>
     );
   }

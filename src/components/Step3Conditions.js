@@ -130,7 +130,7 @@ const Step3Conditions = () => {
   const history = useHistory();
   const handleClick = () => {
     const sendDate = new Date().toUTCString();
-    let ventaPlanesRef = firebase.firestore().collection("venta-planes-test");
+    let ventaPlanesRef = firebase.firestore().collection("venta-planes");
     setSending(true);
 
     //ReactGA.set(formData);

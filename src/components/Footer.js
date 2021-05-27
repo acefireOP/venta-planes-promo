@@ -169,12 +169,12 @@ const Footer = () => {
       <WrapperFooter>
         {
           (
-            formData.selectedPlan === 'linea-adicional-25dcto' ||
-            formData.selectedPlan === 'linea-adicional-50dcto' ||
-            formData.selectedPlan === 'linea-adicional-75dcto' ||
-            formData.selectedPlan === 'linea-adicional-100dcto' ||
-            formData.selectedPlan === 'linea-adicional-125dcto' ||
-            formData.selectedPlan === 'linea-adicional-libredcto'
+            formData.selectedPlan === '25gb-50dcto' ||
+            formData.selectedPlan === '50gb-50dcto' ||
+            formData.selectedPlan === '75gb-50dcto' ||
+            formData.selectedPlan === '100gb-50dcto' ||
+            formData.selectedPlan === '125gb-50dcto' ||
+            formData.selectedPlan === 'libre-50dcto'
           )
           ?
           (
