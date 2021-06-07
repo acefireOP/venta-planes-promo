@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { FormContext } from "../context/FormContext";
 import styled from 'styled-components'
 import { motion } from "framer-motion";
@@ -90,6 +90,7 @@ const ModalC2cContainer = styled(motion.div)`
     }
   }
 `
+
 const IframeC2c = styled.iframe`
   width: 100%;
   height: 100%;
@@ -118,6 +119,12 @@ const variantsModalC2c = {
 
 const ModalC2cGeneric = ({isOpenC2c, setIsOpenC2c}) => {
   const { formData, setFormData } = useContext(FormContext);
+  
+  /*isOpenC2c === true ? 
+  document.body.classList.add('modal-open') 
+  : 
+  document.body.classList.remove('modal-open')*/
+
   return (
     <ModalC2cContainer
       variants={variantsModalC2c}
@@ -126,8 +133,8 @@ const ModalC2cGeneric = ({isOpenC2c, setIsOpenC2c}) => {
     >
       <div className="modal-dialog">
         <div className="modal-body">
-          {(formData.selectedPlan === "100gb-50dcto" ||
-            formData.selectedPlan === "125gb-50dcto" ||
+          {(formData.selectedPlan === "200gb-50dcto" ||
+            formData.selectedPlan === "250gb-50dcto" ||
             formData.selectedPlan === "libre-50dcto") ?
             null
             :

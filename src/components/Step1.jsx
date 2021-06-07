@@ -197,26 +197,27 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
     });*/
   }, []);
 
-  /*const redirectUrl = () => {
-    if(formData.selectedPlan === "promo-50dcto"){
-      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=promo-50dcto"
-    } else if(formData.selectedPlan === "30gb-50dcto"){
-      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=30gb-50dcto"
-    } 
+  const redirectUrl = () => {
+    if(formData.selectedPlan === "25gb-50dcto"){
+      window.location.href="http://3.21.240.26/seguro/venta-planes/?plan=50gb-50dcto"
+    } else if(formData.selectedPlan === "75gb-50dcto"){
+      window.location.href="http://3.21.240.26/seguro/venta-planes/?plan=150gb-50dcto"
+    } else if(formData.selectedPlan === "125gb-50dcto"){
+      window.location.href="http://3.21.240.26/seguro/venta-planes/?plan=250gb-50dcto"
+    }
   } 
-  redirectUrl()*/
+  redirectUrl()
 
   const notPlanType = () => {
     formData.planType = "portabilidad"
   }
 
-
   if (
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "25gb-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "50gb-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "75gb-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "100gb-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "125gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "150gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "200gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "250gb-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "libre-50dcto")
   ) {
     return (
@@ -225,8 +226,8 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
         <RadiusContentWrapper>
           <StepWrapper>
             {
-              (formData.selectedPlan === "100gb-50dcto" ||
-              formData.selectedPlan === "125gb-50dcto" ||
+              (formData.selectedPlan === "200gb-50dcto" ||
+              formData.selectedPlan === "250gb-50dcto" ||
               formData.selectedPlan === "libre-50dcto") &&
               <ModalC2cGeneric
                 isOpenC2c={"visible"}

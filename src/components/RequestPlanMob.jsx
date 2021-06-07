@@ -3,12 +3,12 @@ import { FormContext } from "../context/FormContext";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import PlanArrow from "../images/arrow_2.svg";
-import Plan25gb50dcto from "../images/planes/plan-25-gigas.png";
 import Plan50gb50dcto from "../images/planes/plan-50-gigas.png";
-import Plan75gb50dcto from "../images/planes/plan-75-gigas.png";
 import Plan100gb50dcto from "../images/planes/plan-100-gigas.png";
-import Plan125gb50dcto from "../images/planes/plan-125-gigas.png";
-import PlanLibre50dcto from "../images/planes/plan-minutos-libres.png";
+import Plan150gb50dcto from "../images/planes/plan-150-gigas.png";
+import Plan200gb50dcto from "../images/planes/plan-200-gigas.png";
+import Plan250gb50dcto from "../images/planes/plan-250-gigas.png";
+import PlanLibre50dcto from "../images/planes/plan-gigas-libres.png";
 
 const RequestContainerMob = styled(motion.div)`
   width: 96%;
@@ -96,11 +96,11 @@ const RequestPlanMob = () => {
       >
         {          
           <div className="container-imgplan imgplan-custom">
-            {formData.selectedPlan === "25gb-50dcto" && (  <img src={Plan25gb50dcto} alt="plan promo 25gb 50% dcto" />)}
-            {formData.selectedPlan === "50gb-50dcto" && ( <img src={Plan50gb50dcto} alt="plan promo 50gb 50% dcto" />)}
-            {formData.selectedPlan === "75gb-50dcto" && (  <img src={Plan75gb50dcto} alt="plan promo 75gb 50% dcto" />)}
-            {formData.selectedPlan === "100gb-50dcto" && ( <img src={Plan100gb50dcto} alt="plan promo 100gb 50% dctoe" />)}
-            {formData.selectedPlan === "125gb-50dcto" && ( <img src={Plan125gb50dcto} alt="plan promo 125gb 50% dctoe" />)}
+            {formData.selectedPlan === "50gb-50dcto" && (  <img src={Plan50gb50dcto} alt="plan promo 50gb 50% dcto" />)}
+            {formData.selectedPlan === "100gb-50dcto" && ( <img src={Plan100gb50dcto} alt="plan promo 100gb 50% dcto" />)}
+            {formData.selectedPlan === "150gb-50dcto" && (  <img src={Plan150gb50dcto} alt="plan promo 150gb 50% dcto" />)}
+            {formData.selectedPlan === "200gb-50dcto" && ( <img src={Plan200gb50dcto} alt="plan promo 200gb 50% dcto" />)}
+            {formData.selectedPlan === "250gb-50dcto" && ( <img src={Plan250gb50dcto} alt="plan promo 250gb 50% dcto" />)}
             {formData.selectedPlan === "libre-50dcto" && ( <img src={PlanLibre50dcto} alt="plan promo minutos libres 50% dcto" />)}
           </div> 
         }
