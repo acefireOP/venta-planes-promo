@@ -155,6 +155,24 @@ const Step1InputsPortabilidad = () => {
     setFormData({ ...formData, originPlanType: key });
   };
 
+  const dataLayerFnPlan = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event':'VirtualPageviewGeneral',
+      'virtualPageURL':'/promo-50dcto-linea-adicional/plan/solicitud-en-linea/paso1',
+      'virtualPageTitle':`Promo 50% Línea Adicional - Plan - Solicitud en Línea - Paso 1`,
+    });
+  }
+
+  const dataLayerFnPrepago = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event':'VirtualPageviewGeneral',
+      'virtualPageURL':'/promo-50dcto-linea-adicional/prepago/solicitud-en-linea/paso1',
+      'virtualPageTitle':`Promo 50% Línea Adicional - Prepago - Solicitud en Línea - Paso 1`,
+    });
+  }
+
   return (
     <WrapInputsInline>
       <AlertTopMessage>
@@ -169,7 +187,10 @@ const Step1InputsPortabilidad = () => {
               id="radio-plan"
               name="radio"
               type="radio"
-              onChange={() => radioValidator("plan")}
+              onChange={() => {
+                radioValidator("plan");
+                dataLayerFnPlan();
+              }}
               checked={formData.originPlanType === "plan" ? "checked" : ""}
             />
             <label htmlFor="radio-plan" className="radio-label">
@@ -181,7 +202,10 @@ const Step1InputsPortabilidad = () => {
               id="radio-prepago"
               name="radio"
               type="radio"
-              onChange={() => radioValidator("prepago")}
+              onChange={() => {
+                radioValidator("prepago");
+                dataLayerFnPrepago();
+              }}
               checked={formData.originPlanType === "prepago" ? "checked" : ""}
             />
             <label htmlFor="radio-prepago" className="radio-label">

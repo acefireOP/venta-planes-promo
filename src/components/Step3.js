@@ -39,18 +39,13 @@ const Step3 = () => {
       'tipoPlan':`${formData.planType}`,
       'numeroPortar':`${formData.phoneToMigrate}`
     });*/
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    'event':'VirtualPageviewGeneral',
-    'virtualPageURL':`/checkout/linea-adicional/paso3/plan=${formData.selectedPlan}​`,
-    'virtualPageTitle' : 'Checkout - Linea adicional - Despacho ',
-    'rut':`${formData.rut}`,
-    'tipoPlan':`${formData.planType}`,
-    'numeroPortar':`${formData.phoneToMigrate}`
-  });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event':'VirtualPageviewGeneral',
+      'virtualPageURL':`/promo-50dcto-linea-adicional/${formData.originPlanType}/solicitud-en-linea/paso3`,
+      'virtualPageTitle':`Promo 50% Línea Adicional - ${formData.originPlanType} - Solicitud en Línea - Paso 3`,
+    });
   }, []);
-
-  
 
   return (
     <RadiusContentWrapper>

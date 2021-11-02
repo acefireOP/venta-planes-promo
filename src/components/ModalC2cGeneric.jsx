@@ -133,8 +133,8 @@ const ModalC2cGeneric = ({isOpenC2c, setIsOpenC2c}) => {
     >
       <div className="modal-dialog">
         <div className="modal-body">
-          {(formData.selectedPlan === "200gb-50dcto" ||
-            formData.selectedPlan === "250gb-50dcto" ||
+          {(formData.selectedPlan === "240gb-50dcto" ||
+            formData.selectedPlan === "300gb-50dcto" ||
             formData.selectedPlan === "libre-50dcto") ?
             null
             :

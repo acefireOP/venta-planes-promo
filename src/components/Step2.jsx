@@ -27,11 +27,8 @@ const Step2 = () => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       'event':'VirtualPageviewGeneral',
-      'virtualPageURL':`/checkout/linea-adicional/paso2/plan=${formData.selectedPlan}​`,
-      'virtualPageTitle' : 'Checkout - Linea adicional - Despacho ',
-      'rut':`${formData.rut}`,
-      'tipoPlan':`${formData.planType}`,
-      'numeroPortar':`${formData.phoneToMigrate}`
+      'virtualPageURL':`promo-50dcto-linea-adicional/${formData.originPlanType}/solicitud-en-linea/paso2`,
+      'virtualPageTitle':`Promo 50% Línea Adicional - ${formData.originPlanType} -  Solicitud en Línea - Paso 2`,
     });
   },[])
 

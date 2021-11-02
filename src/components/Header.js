@@ -155,37 +155,37 @@ const Header = ({isOpenC2c, setIsOpenC2c}) => {
             {
               (
                 formData.selectedPlan === undefined ||
-                formData.selectedPlan !== '50gb-50dcto' ||
-                formData.selectedPlan !== '100gb-50dcto' ||
-                formData.selectedPlan !== '150gb-50dcto' ||
-                formData.selectedPlan !== '200gb-50dcto' ||
-                formData.selectedPlan !== '250gb-50dcto' ||
+                formData.selectedPlan !== '60gb-50dcto' ||
+                formData.selectedPlan !== '120gb-50dcto' ||
+                formData.selectedPlan !== '180gb-50dcto' ||
+                formData.selectedPlan !== '240gb-50dcto' ||
+                formData.selectedPlan !== '300gb-50dcto' ||
                 formData.selectedPlan !== 'libre-50dcto'
               )
               && <TitleSection></TitleSection>
             }
-            {formData.selectedPlan === '50gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
-            {formData.selectedPlan === '100gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
-            {formData.selectedPlan === '150gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
-            {formData.selectedPlan === '200gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
-            {formData.selectedPlan === '250gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === '60gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === '120gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === '180gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === '240gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
+            {formData.selectedPlan === '300gb-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
             {formData.selectedPlan === 'libre-50dcto' && <TitleSection>¡Nadie te da más!</TitleSection>}
             
             
             {formData.selectedPlan === undefined && <SubTitleSection></SubTitleSection>}
-            {formData.selectedPlan === '50gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
-            {formData.selectedPlan === '100gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
-            {formData.selectedPlan === '150gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
-            {formData.selectedPlan === '200gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
-            {formData.selectedPlan === '250gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
+            {formData.selectedPlan === '60gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
+            {formData.selectedPlan === '120gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
+            {formData.selectedPlan === '180gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
+            {formData.selectedPlan === '240gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
+            {formData.selectedPlan === '300gb-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
             {formData.selectedPlan === 'libre-50dcto' && <SubTitleSection>Porta un plan adicional con <span>50% dcto por 1 año</span></SubTitleSection>}
 
             {formData.selectedPlan === undefined && <BajadaInfo></BajadaInfo>}
-            {formData.selectedPlan === '50gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
-            {formData.selectedPlan === '100gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
-            {formData.selectedPlan === '150gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
-            {formData.selectedPlan === '200gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
-            {formData.selectedPlan === '250gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
+            {formData.selectedPlan === '60gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
+            {formData.selectedPlan === '120gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
+            {formData.selectedPlan === '180gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
+            {formData.selectedPlan === '240gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
+            {formData.selectedPlan === '300gb-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
             {formData.selectedPlan === 'libre-50dcto' && <BajadaInfo>Si quieres que te llamemos para contratar este u otro plan <span onClick={() => setOpenModalC2c(!openModalC2c)}>haz click aquí</span></BajadaInfo>}
             {/*formData.selectedPlan === 'libre-50dcto' && <BajadaInfo>Si quieres contratar otro plan llámanos al <a className="contact-tel" href="tel:6002001000">600 200 1000</a></BajadaInfo>*/}
           </>
@@ -193,11 +193,11 @@ const Header = ({isOpenC2c, setIsOpenC2c}) => {
         {formData.successFlow === false ? (
 
           (
-            formData.selectedPlan === '50gb-50dcto' ||
-            formData.selectedPlan === '100gb-50dcto' ||
-            formData.selectedPlan === '150gb-50dcto' ||
-            formData.selectedPlan === '200gb-50dcto' ||
-            formData.selectedPlan === '250gb-50dcto' ||
+            formData.selectedPlan === '60gb-50dcto' ||
+            formData.selectedPlan === '120gb-50dcto' ||
+            formData.selectedPlan === '180gb-50dcto' ||
+            formData.selectedPlan === '240gb-50dcto' ||
+            formData.selectedPlan === '300gb-50dcto' ||
             formData.selectedPlan === 'libre-50dcto'
           )  
           ?

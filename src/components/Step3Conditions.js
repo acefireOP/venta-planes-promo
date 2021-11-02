@@ -130,7 +130,7 @@ const Step3Conditions = () => {
   const history = useHistory();
   const handleClick = () => {
     const sendDate = new Date().toUTCString();
-    let ventaPlanesRef = firebase.firestore().collection("venta-planes");
+    let ventaPlanesRef = firebase.firestore().collection("venta-planes-test");
     setSending(true);
 
     //ReactGA.set(formData);
@@ -176,6 +176,16 @@ const Step3Conditions = () => {
       });
   };
 
+  const dataLayerFnPassStep4 = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'eventoGeneral',
+      'eventCategory': `Promo 50% Línea Adicional - ${formData.originPlanType}`,
+      'eventAction': 'Solicitud en Línea',
+      'eventLabel': 'Ir a Paso 4'
+    });
+  }
+
   return (
     <Conditions>
       <div className="condition-check">
@@ -193,7 +203,10 @@ const Step3Conditions = () => {
       </div>
       <button
         className={checked ? "btn-request" : "btn-request disabled"}
-        onClick={handleClick}
+        onClick={() => {
+          handleClick();
+          dataLayerFnPassStep4();
+        }}
       >
         {sending ? "Enviando..." : "Ingresar solicitud"}
       </button>

@@ -376,6 +376,16 @@ const Step2 = (props) => {
     setStore && setStore(store);
   };
 
+  const dataLayerFnPassStep3 = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'eventoGeneral',
+      'eventCategory': `Promo 50% Línea Adicional - ${formData.originPlanType}`,
+      'eventAction': 'Solicitud en Línea',
+      'eventLabel': 'Ir a Paso 3'
+    });
+  }
+
   const ButtonWrapper = () => {
     return (
       <ButtonContainer>
@@ -390,6 +400,7 @@ const Step2 = (props) => {
             stepNum="3"
             stepTitle="Resumen Final"
             route="/paso3"
+            onclick={dataLayerFnPassStep3}
             status={
               formData.dispatchType === "Despacho a domicilio" &&
               validationData.dispatchRegion &&

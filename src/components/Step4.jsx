@@ -177,15 +177,10 @@ const Step4 = () => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       'event':'VirtualPageviewGeneral',
-      'virtualPageURL':`/checkout/linea-adicional/exito/plan=${formData.selectedPlan}​`,
-      'virtualPageTitle' : 'Checkout - Linea adicional - Exito ',
-      'rut':`${formData.rut}`,
-      'tipoPlan':`${formData.planType}`,
-      'numeroPortar':`${formData.phoneToMigrate}`
+      'virtualPageURL':`/promo-50dcto-linea-adicional/${formData.originPlanType}/solicitud-en-linea/paso4`,
+      'virtualPageTitle':`Promo 50% Línea Adicional - ${formData.originPlanType} - Solicitud en Línea - Paso 4`,
     });
   }, []);
-
-  
 
   return (
     <FinalSummary>

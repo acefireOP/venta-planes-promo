@@ -197,13 +197,33 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
     });*/
   }, []);
 
+  const dataLayerFnPassStep2 = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'eventoGeneral',
+      'eventCategory': `Promo 50% Línea Adicional - ${formData.originPlanType}`,
+      'eventAction': 'Solicitud en Línea',
+      'eventLabel': 'Ir a Paso 2'
+    });
+  }
+
   const redirectUrl = () => {
     if(formData.selectedPlan === "25gb-50dcto"){
-      window.location.href="http://3.21.240.26/seguro/venta-planes/?plan=50gb-50dcto"
+      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=50gb-50dcto"
     } else if(formData.selectedPlan === "75gb-50dcto"){
-      window.location.href="http://3.21.240.26/seguro/venta-planes/?plan=150gb-50dcto"
+      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=150gb-50dcto"
     } else if(formData.selectedPlan === "125gb-50dcto"){
-      window.location.href="http://3.21.240.26/seguro/venta-planes/?plan=250gb-50dcto"
+      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=250gb-50dcto"
+    }else if(formData.selectedPlan === "50gb-50dcto"){
+      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=60gb-50dcto"
+    }else if(formData.selectedPlan === "100gb-50dcto"){
+      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=120gb-50dcto"
+    }else if(formData.selectedPlan === "150gb-50dcto"){
+      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=180gb-50dcto"
+    }else if(formData.selectedPlan === "200gb-50dcto"){
+      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=240gb-50dcto"
+    }else if(formData.selectedPlan === "250gb-50dcto"){
+      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=300gb-50dcto"
     }
   } 
   redirectUrl()
@@ -213,11 +233,11 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
   }
 
   if (
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "50gb-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "100gb-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "150gb-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "200gb-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "250gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "60gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "120gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "180gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "240gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "300gb-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "libre-50dcto")
   ) {
     return (
@@ -226,8 +246,8 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
         <RadiusContentWrapper>
           <StepWrapper>
             {
-              (formData.selectedPlan === "200gb-50dcto" ||
-              formData.selectedPlan === "250gb-50dcto" ||
+              (formData.selectedPlan === "240gb-50dcto" ||
+              formData.selectedPlan === "300gb-50dcto" ||
               formData.selectedPlan === "libre-50dcto") &&
               <ModalC2cGeneric
                 isOpenC2c={"visible"}
@@ -349,6 +369,7 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
                     stepNum="2"
                     stepTitle="Despacho"
                     route="/paso2"
+                    onclick={dataLayerFnPassStep2}
                     status={
                       formData.planType === "portabilidad"
                         ? validationData.ci &&
@@ -384,6 +405,7 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
                     stepNum="2"
                     stepTitle="Despacho"
                     route="/paso2"
+                    onclick={dataLayerFnPassStep2}
                     status={
                       formData.planType === "portabilidad"
                         ? validationData.ci &&
