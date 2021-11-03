@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { FormContext } from "../context/FormContext";
 
-import Plan60gb50dcto from "../images/planes/plan-50-gigas.svg";
-import Plan120gb50dcto from "../images/planes/plan-100-gigas.svg";
-import Plan180gb50dcto from "../images/planes/plan-150-gigas.svg";
-import Plan240gb50dcto from "../images/planes/plan-200-gigas.svg";
-import Plan300gb50dcto from "../images/planes/plan-250-gigas.svg";
+import Plan60gb50dcto from "../images/planes/plan-60-gigas.svg";
+import Plan120gb50dcto from "../images/planes/plan-120-gigas.svg";
+import Plan180gb50dcto from "../images/planes/plan-180-gigas.svg";
+import Plan240gb50dcto from "../images/planes/plan-240-gigas.svg";
+import Plan300gb50dcto from "../images/planes/plan-300-gigas.svg";
 import PlanLibre50dcto from "../images/planes/plan-gigas-libres.svg";
 
 const PlanRequested = styled.div`
