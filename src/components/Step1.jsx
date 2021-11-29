@@ -216,12 +216,8 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
       window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=250gb-50dcto"
     }else if(formData.selectedPlan === "50gb-50dcto"){
       window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=60gb-50dcto"
-    }else if(formData.selectedPlan === "100gb-50dcto"){
-      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=120gb-50dcto"
     }else if(formData.selectedPlan === "150gb-50dcto"){
       window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=180gb-50dcto"
-    }else if(formData.selectedPlan === "200gb-50dcto"){
-      window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=240gb-50dcto"
     }else if(formData.selectedPlan === "250gb-50dcto"){
       window.location.href="https://www.wom.cl/seguro/venta-planes/?plan=300gb-50dcto"
     }
@@ -233,11 +229,11 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
   }
 
   if (
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "60gb-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "120gb-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "180gb-50dcto") ||
-    (formData.selectedPlan !== undefined && formData.selectedPlan === "240gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "100gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "200gb-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "300gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "400gb-50dcto") ||
+    (formData.selectedPlan !== undefined && formData.selectedPlan === "500gb-50dcto") ||
     (formData.selectedPlan !== undefined && formData.selectedPlan === "libre-50dcto")
   ) {
     return (
@@ -246,8 +242,8 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
         <RadiusContentWrapper>
           <StepWrapper>
             {
-              (formData.selectedPlan === "240gb-50dcto" ||
-              formData.selectedPlan === "300gb-50dcto" ||
+              (formData.selectedPlan === "400gb-50dcto" ||
+              formData.selectedPlan === "500gb-50dcto" ||
               formData.selectedPlan === "libre-50dcto") &&
               <ModalC2cGeneric
                 isOpenC2c={"visible"}
@@ -286,11 +282,11 @@ const Step1 = ({ location, isOpenC2c, setIsOpenC2c }) => {
               </>
               :
               <>
-                {formData.selectedPlan === 'linea-adicional-25dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
-                {formData.selectedPlan === 'linea-adicional-50dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
-                {formData.selectedPlan === 'linea-adicional-75dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
                 {formData.selectedPlan === 'linea-adicional-100dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
-                {formData.selectedPlan === 'linea-adicional-125dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
+                {formData.selectedPlan === 'linea-adicional-200dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
+                {formData.selectedPlan === 'linea-adicional-300dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
+                {formData.selectedPlan === 'linea-adicional-400dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
+                {formData.selectedPlan === 'linea-adicional-500dcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
                 {formData.selectedPlan === 'linea-adicional-libredcto' && <h1>Solicita tu línea GRATIS por 1 año</h1>}
                 {notPlanType()}
               </>
